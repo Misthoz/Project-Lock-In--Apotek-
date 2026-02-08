@@ -219,7 +219,7 @@
             padding: 12px;
             border: none;
             border-radius: 4px;
-            font-weight: 400;
+            font-weight: 400;   
             font-size: 15px;
             width: 100%;
             margin-top: 20px;
