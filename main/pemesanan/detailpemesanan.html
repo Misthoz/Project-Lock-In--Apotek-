@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pemesanan - Marcydap Apotek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1a472a;
+            --secondary-green: #2d6a4f;
+            --accent-green: #52b788;
+            --light-green: #95d5b2;
+            --bg-cream: #faf8f3;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+
+        .logo-icon::before {
+            width: 5px;
+            height: 20px;
+        }
+
+        .logo-icon::after {
+            width: 20px;
+            height: 5px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-size: 24px;
+        }
+
+        .logo-text p {
+            color: var(--accent-green);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--accent-green);
+            color: var(--secondary-green);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: var(--light-green);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        /* Status Banner */
+        .status-banner {
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            border-radius: 20px;
+            padding: 40px 50px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-banner::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+
+        .status-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .status-info h1 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .status-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .meta-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+        }
+
+        .meta-value {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .status-badge.processing {
+            background: rgba(255, 193, 7, 0.9);
+            color: white;
+        }
+
+        .status-badge.shipped {
+            background: rgba(33, 150, 243, 0.9);
+            color: white;
+        }
+
+        .status-badge.delivered {
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        /* Left Section */
+        .order-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tracking Timeline */
+        .tracking-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 17px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: #e8f5e9;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -40px;
+            top: 24px;
+            width: 38px;
+            height: 38px;
+            background: white;
+            border: 4px solid #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 2;
+        }
+
+        .timeline-item.completed .timeline-dot {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .timeline-item.active .timeline-dot {
+            border-color: var(--accent-green);
+            background: white;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(82, 183, 136, 0);
+            }
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-green);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Order Items */
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f0f0f0, #e8f5e9);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-category {
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--primary-green);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .item-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .item-pricing {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .item-qty {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        /* Address Info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-block h3 {
+            color: var(--primary-green);
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-block p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .info-block strong {
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Payment Info */
+        .payment-card {
+            background: #f8fffe;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-logo {
+            width: 60px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .payment-details h4 {
+            color: var(--primary-green);
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .payment-details p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .payment-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #d4edda;
+            color: #155724;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .payment-status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* Right Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .sidebar-card h3 {
+            font-size: 18px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        /* Order Summary */
+        .summary-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .summary-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .summary-value.discount {
+            color: #dc3545;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .summary-total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .summary-total-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        /* Quick Actions */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .action-btn-primary {
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            color: white;
+        }
+
+        .action-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 106, 79, 0.3);
+        }
+
+        .action-btn-secondary {
+            background: white;
+            color: var(--secondary-green);
+            border: 2px solid var(--accent-green);
+        }
+
+        .action-btn-secondary:hover {
+            background: var(--light-green);
+        }
+
+        .action-btn-outline {
+            background: transparent;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+        }
+
+        .action-btn-outline:hover {
+            background: #ffe8ea;
+        }
+
+        /* Help Card */
+        .help-card {
+            background: linear-gradient(135deg, #f8fffe, #e8f5e9);
+            text-align: center;
+        }
+
+        .help-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .help-card p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .help-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: white;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--secondary-green);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: var(--light-green);
+        }
+
+        /* Invoice Download */
+        .invoice-card {
+            background: white;
+            border: 2px dashed var(--accent-green);
+        }
+
+        .invoice-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: repeat(2, 1fr);
+                display: grid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content,
+            .main-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .status-banner {
+                padding: 30px 25px;
+            }
+
+            .status-info h1 {
+                font-size: 28px;
+            }
+
+            .section-card,
+            .sidebar-card {
+                padding: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .order-item {
+                flex-direction: column;
+            }
+
+            .item-pricing {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <h1>MARCYDAP</h1>
+                    <p>APOTEK</p>
+                </div>
+            </div>
+            <a href="#" class="back-btn">
+                ← Kembali ke Pesanan
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Status Banner -->
+        <div class="status-banner">
+            <div class="status-content">
+                <div class="status-info">
+                    <h1>Pesanan Sedang disiapkan</h1>
+                    <div class="status-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">No. Pesanan</span>
+                            <span class="meta-value">MCD-2024-02-001234</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tanggal Pesan</span>
+                            <span class="meta-value">8 Februari 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-badge shipped">
+                    Dalam Pemerosanan
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Left Section -->
+            <div class="order-details">
+                <!-- Tracking Timeline -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>Lacak Pesanan</h2>
+                    </div>
+                    <div class="tracking-timeline">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="timeline-item completed">
+                            <div class="timeline-dot">✓</div>
+                            <div class="timeline-content">
+                                <h3>Pesanan Dikonfirmasi</h3>
+                                <div class="timeline-date">8 Feb 2024, 14:30 WIB</div>
+                                <div class="timeline-desc">
+                                    Pesanan Anda telah dikonfirmasi dan sedang diproses oleh apotek kami.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active">
+                            <div class="timeline-dot">✓</div>
+                            <div class="timeline-content">
+                                <h3>Pesanan Diproses</h3>
+                                <div class="timeline-date">8 Feb 2024, 15:45 WIB</div>
+                                <div class="timeline-desc">
+                                    Produk sedang disiapkan dan dikemas dengan hati-hati oleh tim kami.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item ">
+                            <div class="timeline-dot">✓</div>
+                            <div class="timeline-content">
+                                <h3>Pesanan Diterima</h3>
+                                <div class="timeline-date">8 Feb 2024, 18:20 WIB</div>
+                                <div class="timeline-desc">
+                                    Paket sedang menunggu penerima
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>🛒 Produk yang Dipesan (3 item)</h2>
+                    </div>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <div class="item-image">💊</div>
+                            <div class="item-info">
+                                <div class="item-category">Obat Bebas</div>
+                                <div class="item-name">Paracetamol 500mg</div>
+                                <div class="item-meta">
+                                    <span>📦 Strip 10 tablet</span>
+                                    <span>⭐ 4.8 (234 review)</span>
+                                </div>
+                            </div>
+                            <div class="item-pricing">
+                                <div class="item-qty">Qty: 2</div>
+                                <div class="item-price">Rp 22.500</div>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="item-image">💊</div>
+                            <div class="item-info">
+                                <div class="item-category">Vitamin</div>
+                                <div class="item-name">Vitamin C 1000mg Effervescent</div>
+                                <div class="item-meta">
+                                    <span>📦 Tube 10 tablet</span>
+                                    <span>⭐ 4.9 (567 review)</span>
+                                </div>
+                            </div>
+                            <div class="item-pricing">
+                                <div class="item-qty">Qty: 1</div>
+                                <div class="item-price">Rp 35.000</div>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="item-image">💊</div>
+                            <div class="item-info">
+                                <div class="item-category">Alat Kesehatan</div>
+                                <div class="item-name">Masker Medis 3 Ply Earloop</div>
+                                <div class="item-meta">
+                                    <span>📦 Box 50 pcs</span>
+                                    <span>⭐ 4.6 (1.2k review)</span>
+                                </div>
+                            </div>
+                            <div class="item-pricing">
+                                <div class="item-qty">Qty: 1</div>
+                                <div class="item-price">Rp 38.250</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping & Payment Info -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>Informasi Pemesanan</h2>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-block">
+                            <h3>Informasi Penerima</h3>
+                            <p>
+                                <strong>Sarah Wijaya</strong>
+                                +62 812-3456-7890<br><br>
+                                Jl. Kemang Raya No. 45, RT 001/RW 005<br>
+                                Bangka, Mampang Prapatan<br>
+                                Jakarta Selatan, DKI Jakarta 12730
+                            </p>
+                        </div>
+                        <div class="info-block">
+                            <h3>Alamat Apotek Pengambilan</h3>
+                            <p>
+                                <strong>Apotek Mercydap Kemang<strong>
+                                Jl. Kemang Raya No. 45, RT 001/RW 005<br><br>
+                                Bangka, Mampang Prapatan<br>
+                                Jakarta Selatan, DKI Jakarta 12730
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="payment-card" style="margin-top: 25px;">
+                        <h3 style="color: var(--primary-green); font-size: 16px; margin-bottom: 15px;">💳 Metode Pembayaran</h3>
+                        <div class="payment-method">
+                            <div class="payment-logo"></div>
+                            <div class="payment-details" style="flex: 1;">
+                                <h4>BCA Virtual Account</h4>
+                                <p>8808 1234 5678 9012</p>
+                            </div>
+                            <div class="payment-status">✓ Lunas</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: 15px; border-top: 1px solid #e8f5e9;">
+                            <span style="color: #666; font-size: 14px;">Dibayar pada</span>
+                            <span style="color: var(--primary-green); font-weight: 600; font-size: 14px;">8 Feb 2024, 14:25 WIB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="sidebar">
+                <!-- Order Summary -->
+                <div class="sidebar-card">
+                    <h3>Ringkasan Pembayaran</h3>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span class="summary-label">Subtotal (3 item)</span>
+                            <span class="summary-value">Rp 95.750</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Biaya Pengiriman</span>
+                            <span class="summary-value">Rp 15.000</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Diskon Voucher</span>
+                            <span class="summary-value discount">- Rp 10.000</span>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <span class="summary-total-label">Total</span>
+                        <span class="summary-total-value">Rp 100.750</span>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="sidebar-card">
+                    <h3>Aksi Cepat</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn action-btn-secondary">
+                             Chat Customer Service
+                        </button>
+                        <button class="action-btn action-btn-secondary">
+                             Tulis Review
+                        </button>
+                        <button class="action-btn action-btn-outline">
+                             Batalkan Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Invoice -->
+                <div class="sidebar-card invoice-card">
+                    <h3 style="text-align: center; margin-bottom: 10px;">Invoice</h3>
+                    <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 15px;">
+                        Download invoice untuk laporan keuangan Anda
+                    </p>
+                    <button class="action-btn action-btn-primary">
+                        Download Invoice (PDF)
+                    </button>
+                </div>
+
+                <!-- Help -->
+                <div class="sidebar-card help-card">
+                    <h3>💬 Butuh Bantuan?</h3>
+                    <p>Tim customer service kami siap membantu Anda 24/7</p>
+                    <div class="help-contact">
+                        <a href="tel:+622150012345" class="contact-item">
+                            📞 (021) 5001-2345
+                        </a>
+                        <a href="https://wa.me/6281234567890" class="contact-item">
+                            💬 WhatsApp CS
+                        </a>
+                        <a href="mailto:support@marcydap.com" class="contact-item">
+                            📧 support@marcydap.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

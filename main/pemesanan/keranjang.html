@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Marcydap Apotek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1a472a;
+            --secondary-green: #2d6a4f;
+            --accent-green: #52b788;
+            --light-green: #95d5b2;
+            --bg-cream: #faf8f3;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+
+        .logo-icon::before {
+            width: 5px;
+            height: 20px;
+        }
+
+        .logo-icon::after {
+            width: 20px;
+            height: 5px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-size: 24px;
+        }
+
+        .logo-text p {
+            color: var(--accent-green);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .continue-shopping {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--accent-green);
+            color: var(--secondary-green);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .continue-shopping:hover {
+            background: var(--light-green);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 30px;
+        }
+
+        /* Cart Section */
+        .cart-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Empty Cart State */
+        .empty-cart {
+            background: white;
+            border-radius: 20px;
+            padding: 80px 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: none;
+        }
+
+        .empty-cart.show {
+            display: block;
+        }
+
+        .empty-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .empty-cart p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .shop-now-btn {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shop-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+        }
+
+        /* Select All */
+        .select-all-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .select-all-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .select-all-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+
+        .select-all-checkbox label {
+            font-weight: 600;
+            color: var(--primary-green);
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .delete-selected {
+            color: #dc3545;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .delete-selected:hover {
+            background: #ffe8ea;
+        }
+
+        /* Cart Item */
+        .cart-item {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item.out-of-stock {
+            opacity: 0.6;
+            background: #f8f9fa;
+        }
+
+        .item-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+
+        .item-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #f0f0f0, #e8f5e9);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .item-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--accent-green);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .item-badge.promo {
+            background: #ff6b6b;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .item-category {
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--primary-green);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .item-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stock-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-status.in-stock {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .stock-status.out-of-stock {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .stock-status.limited {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 10px;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border: 2px solid #e8f5e9;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-green);
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover:not(:disabled) {
+            background: var(--light-green);
+            border-color: var(--accent-green);
+        }
+
+        .qty-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .qty-number {
+            width: 50px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-green);
+            font-size: 16px;
+        }
+
+        .item-controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .control-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #e8f5e9;
+            color: #666;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--secondary-green);
+        }
+
+        .control-btn.delete {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+        .control-btn.delete:hover {
+            background: #ffe8ea;
+        }
+
+        .item-pricing {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .price-current {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        .price-total {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .price-total strong {
+            color: var(--primary-green);
+        }
+
+        /* Recommendations */
+        .recommendations {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .recommendations h3 {
+            font-size: 20px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .recommendation-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            background: #e8f5e9;
+            transform: translateY(-3px);
+        }
+
+        .rec-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f0f0f0, #e8f5e9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 10px;
+        }
+
+        .rec-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .rec-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        /* Sidebar Summary */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .summary-card h2 {
+            font-size: 20px;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+        }
+
+        .summary-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .summary-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .summary-value.discount {
+            color: #dc3545;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .summary-total-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .summary-total-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .checkout-note {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Promo Card */
+        .promo-card {
+            background: linear-gradient(135deg, #f8fffe, #e8f5e9);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .promo-card h3 {
+            font-size: 18px;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .promo-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .promo-input input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid #e8f5e9;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .promo-input input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        .apply-btn {
+            padding: 14px 24px;
+            background: var(--secondary-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .apply-btn:hover {
+            background: var(--primary-green);
+        }
+
+        .available-promos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .promo-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .promo-item:hover {
+            background: var(--light-green);
+        }
+
+        .promo-code {
+            font-weight: 700;
+            color: var(--secondary-green);
+            font-size: 13px;
+        }
+
+        .promo-desc {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .promo-discount {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Benefits */
+        .benefits-list {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .benefits-list h3 {
+            font-size: 16px;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-icon {
+            font-size: 18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content,
+            .main-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+            }
+
+            .item-checkbox {
+                order: -1;
+            }
+
+            .item-pricing {
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .item-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-input {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <h1>MARCYDAP</h1>
+                    <p>APOTEK</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../produk.html" class="continue-shopping">← Lanjut Belanja</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Keranjang Belanja</h1>
+            <p>Kelola produk yang akan Anda beli</p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Left Section - Cart Items -->
+            <div class="cart-section">
+                <!-- Select All -->
+                <div class="select-all-card">
+                    <div class="select-all-checkbox">
+                        <input type="checkbox" id="select-all">
+                        <label for="select-all">Pilih Semua (5 produk)</label>
+                    </div>
+                    <button class="delete-selected">🗑️ Hapus Terpilih</button>
+                </div>
+
+                <!-- Cart Item 1 -->
+                <div class="cart-item">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-check">
+                    </div>
+                    <div class="item-image">
+                        💊
+                        <span class="item-badge promo">-25%</span>
+                    </div>
+                    <div class="item-details">
+                        <div class="item-category">Obat Bebas</div>
+                        <div class="item-name">Paracetamol 500mg</div>
+                        <div class="item-meta">
+                            <span>📦 Strip 10 tablet</span>
+                            <span>⭐ 4.8 (234 review)</span>
+                            <span class="stock-status in-stock">✓ Stok tersedia</span>
+                        </div>
+                        <div class="item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <div class="qty-number">2</div>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <div class="item-controls">
+                                <button class="control-btn">💙 Wishlist</button>
+                                <button class="control-btn delete">🗑️ Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pricing">
+                        <div class="price-original">Rp 15.000</div>
+                        <div class="price-current">Rp 11.250</div>
+                        <div class="price-total">Total: <strong>Rp 22.500</strong></div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-check">
+                    </div>
+                    <div class="item-image">💊</div>
+                    <div class="item-details">
+                        <div class="item-category">Vitamin</div>
+                        <div class="item-name">Vitamin C 1000mg Effervescent</div>
+                        <div class="item-meta">
+                            <span>📦 Tube 10 tablet</span>
+                            <span>⭐ 4.9 (567 review)</span>
+                            <span class="stock-status in-stock">✓ Stok tersedia</span>
+                        </div>
+                        <div class="item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <div class="qty-number">1</div>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <div class="item-controls">
+                                <button class="control-btn">💙 Wishlist</button>
+                                <button class="control-btn delete">🗑️ Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pricing">
+                        <div class="price-current">Rp 35.000</div>
+                        <div class="price-total">Total: <strong>Rp 35.000</strong></div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-check">
+                    </div>
+                    <div class="item-image">💊</div>
+                    <div class="item-details">
+                        <div class="item-category">Alat Kesehatan</div>
+                        <div class="item-name">Masker Medis 3 Ply Earloop</div>
+                        <div class="item-meta">
+                            <span>📦 Box 50 pcs</span>
+                            <span>⭐ 4.6 (1.2k review)</span>
+                            <span class="stock-status in-stock">✓ Stok tersedia</span>
+                        </div>
+                        <div class="item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <div class="qty-number">1</div>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <div class="item-controls">
+                                <button class="control-btn">💙 Wishlist</button>
+                                <button class="control-btn delete">🗑️ Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pricing">
+                        <div class="price-current">Rp 38.250</div>
+                        <div class="price-total">Total: <strong>Rp 38.250</strong></div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 4 -->
+                <div class="cart-item">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-check">
+                    </div>
+                    <div class="item-image">💊</div>
+                    <div class="item-details">
+                        <div class="item-category">Herbal</div>
+                        <div class="item-name">Madu Murni Premium 100% Asli</div>
+                        <div class="item-meta">
+                            <span>📦 Botol 500ml</span>
+                            <span>⭐ 4.9 (892 review)</span>
+                            <span class="stock-status limited">⚠️ Stok terbatas (3 pcs)</span>
+                        </div>
+                        <div class="item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn">-</button>
+                                <div class="qty-number">1</div>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <div class="item-controls">
+                                <button class="control-btn">💙 Wishlist</button>
+                                <button class="control-btn delete">🗑️ Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pricing">
+                        <div class="price-current">Rp 125.000</div>
+                        <div class="price-total">Total: <strong>Rp 125.000</strong></div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 5 - Out of Stock -->
+                <div class="cart-item out-of-stock">
+                    <div class="item-checkbox">
+                        <input type="checkbox" class="item-check" disabled>
+                    </div>
+                    <div class="item-image">💊</div>
+                    <div class="item-details">
+                        <div class="item-category">Vitamin</div>
+                        <div class="item-name">Multivitamin Lengkap Daily Formula</div>
+                        <div class="item-meta">
+                            <span>📦 Botol 60 tablet</span>
+                            <span>⭐ 4.8 (445 review)</span>
+                            <span class="stock-status out-of-stock">✗ Stok habis</span>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-controls">
+                                <button class="control-btn">🔔 Beritahu Saya</button>
+                                <button class="control-btn delete">🗑️ Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-pricing">
+                        <div class="price-current">Rp 89.000</div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations">
+                    <h3>💡 Produk yang Mungkin Anda Suka</h3>
+                    <div class="recommendations-grid">
+                        <div class="recommendation-item">
+                            <div class="rec-image">💊</div>
+                            <div class="rec-name">Obat Batuk Herbal</div>
+                            <div class="rec-price">Rp 28.500</div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-image">💊</div>
+                            <div class="rec-name">Vitamin D3 1000 IU</div>
+                            <div class="rec-price">Rp 45.000</div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-image">💊</div>
+                            <div class="rec-name">Hand Sanitizer 100ml</div>
+                            <div class="rec-price">Rp 15.000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="sidebar">
+                <!-- Summary -->
+                <div class="summary-card">
+                    <h2>Ringkasan Belanja</h2>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span class="summary-label">Subtotal (4 item)</span>
+                            <span class="summary-value">Rp 220.750</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Diskon Produk</span>
+                            <span class="summary-value discount">- Rp 3.750</span>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <span class="summary-total-label">Total</span>
+                        <span class="summary-total-value">Rp 217.000</span>
+                    </div>
+                    <button class="checkout-btn"><a href="pemesanan.html">Lanjut ke Pembayaran</a></button>
+                    <div class="checkout-note">
+                         Transaksi aman & terenkripsi
+                    </div>
+                </div>
+
+                <!-- Promo -->
+                <div class="promo-card">
+                    <h3>Voucher & Promo</h3>
+                    <div class="promo-input">
+                        <input type="text" placeholder="Masukkan kode voucher">
+                        <button class="apply-btn">Gunakan</button>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="benefits-list">
+                    <h3>Keuntungan Berbelanja</h3>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Produk 100% original & berkualitas</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        <span>Gratis konsultasi apoteker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

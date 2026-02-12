@@ -221,7 +221,7 @@
 
         /* Footer */
         .footer {
-            background-color: #2D3436;
+            background-color: #2d4a44;
             color: white;
             padding: 50px 30px 20px;
         }
