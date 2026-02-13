@@ -155,11 +155,11 @@
                 <!-- Shipping Address -->
                 <div class="section-card">
                     <div class="section-header d-flex justify-content-between align-items-center">
-                        <h2>📍 Alamat Pengiriman</h2>
+                        <h2>Alamat Penerimaan</h2>
                         <button class="edit-btn">Ubah</button>
                     </div>
                     <div class="address-card">
-                        <div class="mb-3"><span class="address-type">Rumah</span></div>
+                        <div class="mb-3"><span class="address-type">Apotek</span></div>
                         <div class="address-name">Sarah Wijaya</div>
                         <div class="address-phone">+62 812-3456-7890</div>
                         <div class="address-detail">
@@ -173,53 +173,8 @@
 
                 <!-- Cart Items -->
                 <div class="section-card">
-                    <div class="section-header"><h2>🛒 Produk yang Dipesan (3 item)</h2></div>
+                    <div class="section-header"><h2>Produk yang Dipesan</h2></div>
                     <div class="d-flex flex-column gap-3">
-                        <div class="cart-item">
-                            <div class="item-image">💊</div>
-                            <div class="flex-grow-1">
-                                <div class="item-category">Obat Bebas</div>
-                                <div class="item-name">Paracetamol 500mg</div>
-                                <div class="item-meta">📦 Strip 10 tablet</div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="qty-btn">-</button><div class="qty-number">2</div><button class="qty-btn">+</button>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column align-items-end justify-content-between">
-                                <div class="item-price">Rp 22.500</div>
-                                <button class="remove-btn">Hapus</button>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="item-image">💊</div>
-                            <div class="flex-grow-1">
-                                <div class="item-category">Vitamin</div>
-                                <div class="item-name">Vitamin C 1000mg</div>
-                                <div class="item-meta">📦 Tube 10 tablet</div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="qty-btn">-</button><div class="qty-number">1</div><button class="qty-btn">+</button>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column align-items-end justify-content-between">
-                                <div class="item-price">Rp 35.000</div>
-                                <button class="remove-btn">Hapus</button>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="item-image">💊</div>
-                            <div class="flex-grow-1">
-                                <div class="item-category">Alat Kesehatan</div>
-                                <div class="item-name">Masker Medis 3 Ply</div>
-                                <div class="item-meta">📦 Box 50 pcs</div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <button class="qty-btn">-</button><div class="qty-number">1</div><button class="qty-btn">+</button>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column align-items-end justify-content-between">
-                                <div class="item-price">Rp 38.250</div>
-                                <button class="remove-btn">Hapus</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

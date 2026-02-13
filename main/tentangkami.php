@@ -122,6 +122,61 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.8s ease forwards; }
+
+        .footer {
+            background: #0a1f1a;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #b7e4c7;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -252,58 +307,6 @@
         </div>
     </section>
 
-    <!-- Team -->
-    <section class="team-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Tim Kami</h2>
-                <p class="section-subtitle">Orang-orang hebat di balik Marcydap Apotek</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-avatar">👨‍⚕️</div>
-                        <div class="team-info">
-                            <h4>Dr. Ahmad Wijaya</h4>
-                            <div class="role">CEO & Founder</div>
-                            <p>Berpengalaman lebih dari 15 tahun di industri farmasi dan kesehatan.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-avatar">👩‍⚕️</div>
-                        <div class="team-info">
-                            <h4>Apt. Sarah Kusuma</h4>
-                            <div class="role">Head Pharmacist</div>
-                            <p>Apoteker bersertifikat dengan spesialisasi dalam farmasi klinis.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-avatar">👨‍💻</div>
-                        <div class="team-info">
-                            <h4>Budi Santoso</h4>
-                            <div class="role">CTO</div>
-                            <p>Memimpin transformasi digital Marcydap dengan teknologi terkini.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-avatar">👩‍💼</div>
-                        <div class="team-info">
-                            <h4>Linda Permata</h4>
-                            <div class="role">COO</div>
-                            <p>Mengelola operasional harian dan memastikan kualitas pelayanan terbaik.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
@@ -312,6 +315,19 @@
             <a href="hubungikami.php" class="cta-btn">Hubungi Kami →</a>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
+                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with in Indonesia</p></div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -118,6 +118,61 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeInUp 0.8s ease forwards; }
+
+        .footer {
+            background: #0a1f1a;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #b7e4c7;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -155,7 +210,6 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
-                        <div class="contact-icon">📞</div>
                         <h4>Telepon</h4>
                         <p>Senin - Jumat, 08.00 - 20.00 WIB</p>
                         <div class="contact-detail">(021) 1234-5678</div>
@@ -163,7 +217,6 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
-                        <div class="contact-icon">📧</div>
                         <h4>Email</h4>
                         <p>Respon dalam 1x24 jam</p>
                         <div class="contact-detail">info@marcydap.com</div>
@@ -171,7 +224,6 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
-                        <div class="contact-icon">💬</div>
                         <h4>Live Chat</h4>
                         <p>Respon cepat & real-time</p>
                         <div class="contact-detail">24/7 Online</div>
@@ -179,7 +231,6 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
-                        <div class="contact-icon">📱</div>
                         <h4>WhatsApp</h4>
                         <p>Chat langsung dengan tim kami</p>
                         <div class="contact-detail">+62 812-3456-7890</div>
@@ -236,13 +287,13 @@
                 <div class="col-lg-5">
                     <div class="d-flex flex-column gap-4">
                         <div class="office-card">
-                            <h4>📍 Kantor Pusat</h4>
+                            <h4>Kantor Pusat</h4>
                             <p>Jl. Kesehatan No. 123</p>
                             <p>Jakarta Selatan, DKI Jakarta 12345</p>
                             <p>Indonesia</p>
                         </div>
                         <div class="office-card">
-                            <h4>🕐 Jam Operasional</h4>
+                            <h4>Jam Operasional</h4>
                             <p><strong>Senin - Jumat:</strong> 08.00 - 21.00 WIB</p>
                             <p><strong>Sabtu:</strong> 09.00 - 18.00 WIB</p>
                             <p><strong>Minggu:</strong> 10.00 - 15.00 WIB</p>
@@ -250,7 +301,7 @@
                         <div class="customer-service">
                             <h3>Butuh Bantuan Segera?</h3>
                             <p style="opacity:0.9;">Tim customer service kami siap membantu Anda 24/7. Hubungi hotline kami untuk bantuan darurat.</p>
-                            <p class="mt-3" style="font-size:24px; font-weight:700;">📞 (021) 1234-5678</p>
+                            <p class="mt-3" style="font-size:24px; font-weight:700;">(021) 1234-5678</p>
                         </div>
                     </div>
                 </div>
@@ -307,12 +358,18 @@
         </div>
     </section>
 
-    <!-- Map Placeholder -->
-    <section class="py-5">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="map-placeholder">📍</div>
+            <div class="row g-5 mb-5">
+                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
+                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
         </div>
-    </section>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

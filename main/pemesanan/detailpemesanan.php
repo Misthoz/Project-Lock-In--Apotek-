@@ -175,7 +175,7 @@
                 <div class="status-info">
                     <h1>Pesanan Sedang disiapkan</h1>
                     <div class="d-flex gap-4 flex-wrap">
-                        <div><span class="meta-label d-block">No. Pesanan</span><span class="meta-value">MCD-2024-02-001234</span></div>
+                        <div><span class="meta-label d-block">No. Pesanan</span><span class="meta-value">-</span></div>
                         <div><span class="meta-label d-block">Tanggal Pesan</span><span class="meta-value">8 Februari 2024</span></div>
                     </div>
                 </div>
@@ -220,8 +220,8 @@
 
                 <!-- Order Items -->
                 <div class="section-card">
-                    <div class="section-header"><h2>🛒 Produk yang Dipesan (3 item)</h2></div>
-                    <div class="d-flex flex-column gap-3">
+                    <div class="section-header"><h2>Produk yang Dipesan (3 item)</h2></div>
+                    <!-- <div class="d-flex flex-column gap-3">
                         <div class="order-item">
                             <div class="item-image">💊</div>
                             <div class="flex-grow-1">
@@ -249,13 +249,13 @@
                             </div>
                             <div class="text-end"><div class="item-qty">Qty: 1</div><div class="item-price">Rp 38.250</div></div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Shipping & Payment Info -->
                 <div class="section-card">
                     <div class="section-header"><h2>Informasi Pemesanan</h2></div>
-                    <div class="row g-4 mb-4">
+                    <!-- <div class="row g-4 mb-4">
                         <div class="col-md-6">
                             <div class="info-block">
                                 <h3>Informasi Penerima</h3>
@@ -268,7 +268,7 @@
                                 <p><strong>Apotek Marcydap Kemang</strong>Jl. Kemang Raya No. 45, RT 001/RW 005<br><br>Bangka, Mampang Prapatan<br>Jakarta Selatan, DKI Jakarta 12730</p>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <div class="payment-card">
                         <h3 style="color: var(--primary-green); font-size: 16px; margin-bottom: 15px;">💳 Metode Pembayaran</h3>
                         <div class="d-flex align-items-center gap-3 mb-3">
@@ -283,7 +283,7 @@
                             <span style="color: #666; font-size: 14px;">Dibayar pada</span>
                             <span style="color: var(--primary-green); font-weight: 600; font-size: 14px;">8 Feb 2024, 14:25 WIB</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -315,17 +315,6 @@
                     <h3>Invoice</h3>
                     <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Download invoice untuk laporan keuangan Anda</p>
                     <button class="action-btn action-btn-primary">Download Invoice (PDF)</button>
-                </div>
-
-                <!-- Help -->
-                <div class="sidebar-card help-card">
-                    <h3>💬 Butuh Bantuan?</h3>
-                    <p>Tim customer service kami siap membantu Anda 24/7</p>
-                    <div class="d-flex flex-column gap-2">
-                        <a href="tel:+622150012345" class="contact-item">📞 (021) 5001-2345</a>
-                        <a href="https://wa.me/6281234567890" class="contact-item">💬 WhatsApp CS</a>
-                        <a href="mailto:support@marcydap.com" class="contact-item">📧 support@marcydap.com</a>
-                    </div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,6 @@
+<?php
+include '../../config/app.php';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -292,37 +295,6 @@
                 <div class="col-lg-4"><div class="service-card"><h3>Belanja Online</h3><p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.php" class="service-link">Mulai Belanja →</a></div></div>
                 <div class="col-lg-4"><div class="service-card"><h3>Upload Resep</h3><p>Kirim resep dokter secara digital dan kami akan memproses pesanan Anda dengan cepat dan akurat.</p><a href="#" class="service-link">Upload Resep →</a></div></div>
                 <div class="col-lg-4"><div class="service-card"><h3>Apotek Terdekat</h3><p>Temukan 45+ apotek Marcydap di berbagai kota. Kunjungi langsung untuk pelayanan personal.</p><a href="#" class="service-link">Cari Lokasi →</a></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">⭐ Testimoni</span>
-                <h2 class="section-title">Dipercaya oleh Ribuan Pelanggan</h2>
-                <p class="section-description mx-auto" style="max-width:700px;">Dengar langsung dari mereka yang telah merasakan pelayanan terbaik kami</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="d-flex gap-3 mb-4"><div class="testimonial-avatar">👩</div><div><h4 class="mb-1" style="font-size:18px;font-weight:700;color:var(--forest)">Sarah Wijaya</h4><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div></div>
-                        <p class="testimonial-text">"Pelayanan super cepat! Pesan pagi, sore sudah sampai. Apotekernya ramah dan helpful banget kasih saran. Highly recommended!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="d-flex gap-3 mb-4"><div class="testimonial-avatar">👨</div><div><h4 class="mb-1" style="font-size:18px;font-weight:700;color:var(--forest)">Budi Santoso</h4><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div></div>
-                        <p class="testimonial-text">"Harga lebih murah dari apotek lain, tapi kualitas tetap terjamin. Fitur konsultasi gratisnya sangat membantu!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="d-flex gap-3 mb-4"><div class="testimonial-avatar">👩</div><div><h4 class="mb-1" style="font-size:18px;font-weight:700;color:var(--forest)">Linda Permata</h4><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div></div>
-                        <p class="testimonial-text">"Aplikasinya user-friendly, packaging rapi, dan poin rewardnya banyak! Sudah langganan 2 tahun, never disappointed."</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

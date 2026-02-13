@@ -1,3 +1,11 @@
+<?php
+include '../config/db.php';
+
+// Query untuk mengambil semua produk dari database
+$query = "SELECT * FROM barang ORDER BY id_barang DESC";
+$result = mysqli_query($db, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -289,7 +297,6 @@
         }
 
         .product-image::before {
-            content: '💊';
             font-size: 70px;
             opacity: 0.3;
         }
@@ -467,6 +474,61 @@
             position: sticky;
             top: 100px;
         }
+
+        .footer {
+            background: #0a1f1a;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #b7e4c7;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -515,7 +577,6 @@
                 <div class="sidebar-sticky">
                     <div class="filter-section">
                         <h3>Kategori</h3>
-                        <div class="filter-option"><input type="checkbox" id="cat1"><label for="cat1">Obat Resep</label><span class="filter-count">(238)</span></div>
                         <div class="filter-option"><input type="checkbox" id="cat2"><label for="cat2">Obat Bebas</label><span class="filter-count">(156)</span></div>
                         <div class="filter-option"><input type="checkbox" id="cat3"><label for="cat3">Vitamin & Suplemen</label><span class="filter-count">(124)</span></div>
                         <div class="filter-option"><input type="checkbox" id="cat4"><label for="cat4">Herbal</label><span class="filter-count">(89)</span></div>
@@ -531,168 +592,33 @@
             <!-- Products Area -->
             <div class="col-lg-9">
                 <div class="mb-4">
-                    <div class="products-count">Menampilkan <strong>1-24</strong> dari <strong>674</strong> produk</div>
+                    <?php 
+                    $total_produk = mysqli_num_rows($result);
+                    ?>
+                    <div class="products-count">Menampilkan <strong>1-<?php echo $total_produk; ?></strong> dari <strong><?php echo $total_produk; ?></strong> produk</div>
                 </div>
                 <div class="row g-4">
-                    <!-- Product Card 1 -->
+                    <?php 
+                    // Cek apakah ada data produk
+                    if(mysqli_num_rows($result) > 0) {
+                        // Loop untuk menampilkan setiap produk
+                        while($row = mysqli_fetch_assoc($result)) {
+                            // Set product data untuk component
+                            $product = $row;
+                    ?>
+                    
+                    <!-- Product Card -->
                     <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-promo">PROMO 25%</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Obat Bebas</div>
-                                <h3 class="product-title">Paracetamol 500mg - Pereda Nyeri & Demam</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.8) · 234 terjual</span></div>
-                                <div class="product-meta"><span>📦 Strip 10 tablet</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-original d-block">Rp 15.000</span><span class="price-current">Rp 11.250</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include 'components/product-card.php'; ?>
                     </div>
-                    <!-- Product Card 2 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-new">BARU</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Vitamin</div>
-                                <h3 class="product-title">Vitamin C 1000mg Effervescent</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.9) · 567 terjual</span></div>
-                                <div class="product-meta"><span>📦 Tube 10 tablet</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-current">Rp 35.000</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-best">TERLARIS</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Herbal</div>
-                                <h3 class="product-title">Madu Murni Premium 100% Asli</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.9) · 892 terjual</span></div>
-                                <div class="product-meta"><span>📦 Botol 500ml</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-current">Rp 125.000</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 4 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-prescription">RESEP</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Obat Resep</div>
-                                <h3 class="product-title">Amoxicillin 500mg Antibiotik</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.7) · 156 terjual</span></div>
-                                <div class="product-meta"><span>📦 Strip 10 kapsul</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-current">Rp 28.500</span></div>
-                                    <button class="add-btn"><span>📋</span><span>Upload Resep</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 5 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-promo">PROMO 15%</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Alat Kesehatan</div>
-                                <h3 class="product-title">Masker Medis 3 Ply Earloop</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐</span><span class="rating-count">(4.6) · 1.2k terjual</span></div>
-                                <div class="product-meta"><span>📦 Box 50 pcs</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-original d-block">Rp 45.000</span><span class="price-current">Rp 38.250</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 6 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Vitamin</div>
-                                <h3 class="product-title">Multivitamin Lengkap Daily Formula</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.8) · 445 terjual</span></div>
-                                <div class="product-meta"><span>📦 Botol 60 tablet</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-current">Rp 89.000</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 7 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-new">BARU</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Alat Kesehatan</div>
-                                <h3 class="product-title">Termometer Digital Infrared</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐⭐</span><span class="rating-count">(4.9) · 223 terjual</span></div>
-                                <div class="product-meta"><span>📦 1 unit</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-current">Rp 185.000</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Card 8 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-badges"><span class="product-badge badge-promo">PROMO 30%</span></div>
-                            <button class="wishlist-btn">♡</button>
-                            <div class="product-image">
-                                <div class="quick-view">Lihat Detail</div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-category">Obat Bebas</div>
-                                <h3 class="product-title">Obat Batuk Herbal Sirup 100ml</h3>
-                                <div class="product-rating"><span class="stars">⭐⭐⭐⭐</span><span class="rating-count">(4.5) · 334 terjual</span></div>
-                                <div class="product-meta"><span>📦 Botol 100ml</span></div>
-                                <div class="product-footer">
-                                    <div><span class="price-original d-block">Rp 42.000</span><span class="price-current">Rp 29.400</span></div>
-                                    <button class="add-btn"><span>🛒</span><span>Tambah</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <?php 
+                        } // End while
+                    } else {
+                        // Jika tidak ada produk
+                        echo '<div class="col-12"><div class="alert alert-info">Belum ada produk tersedia.</div></div>';
+                    }
+                    ?>
                 </div>
 
                 <!-- Pagination -->
@@ -709,10 +635,43 @@
     <!-- Floating Cart -->
     <a href="pemesanan/keranjang.php" class="floating-cart">
         <span>🛒</span><span>Keranjang</span>
-        <div class="cart-count">5</div>
     </a>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
+                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fungsi untuk menambah produk ke keranjang
+        function addToCart(productId) {
+            // Implementasi bisa disesuaikan dengan sistem keranjang Anda
+            alert('Produk dengan ID ' + productId + ' ditambahkan ke keranjang!');
+            // TODO: Implementasi AJAX untuk menambah ke keranjang
+        }
+        
+        // Fungsi untuk wishlist
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.innerHTML === '♡') {
+                    this.innerHTML = '♥';
+                    this.style.color = '#ff6b6b';
+                } else {
+                    this.innerHTML = '♡';
+                    this.style.color = '';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

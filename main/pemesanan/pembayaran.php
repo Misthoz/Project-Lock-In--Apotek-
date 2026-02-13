@@ -180,7 +180,7 @@
                 <!-- Payment Methods -->
                 <div class="section-card">
                     <div class="section-header">
-                        <h2>💳 Pilih Metode Pembayaran</h2>
+                        <h2>Pilih Metode Pembayaran</h2>
                         <p>Pilih metode pembayaran yang paling nyaman untuk Anda</p>
                     </div>
                     <div class="mb-4 pb-3 border-bottom">
@@ -210,42 +210,16 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                             <span style="color:#666; font-size:14px;">Total Pembayaran</span>
-                            <span style="font-size:24px; font-weight:700; color:var(--secondary-green);">Rp 100.750</span>
-                        </div>
-                        <div class="payment-deadline">
-                            <strong>⏰ Selesaikan pembayaran dalam 23:45:30</strong>
-                            <p>Pesanan akan otomatis dibatalkan jika melewati batas waktu</p>
+                            <span style="font-size:24px; font-weight:700; color:var(--secondary-green);"></span>
                         </div>
                     </div>
 
-                    <!-- Payment Instructions -->
-                    <div class="mt-4">
-                        <h3 style="color: var(--primary-green); font-size: 16px; margin-bottom: 15px;">📝 Cara Pembayaran via BCA Virtual Account</h3>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">1</div><div class="step-text">Masuk ke BCA mobile atau klik BCA</div></div>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">2</div><div class="step-text">Pilih menu "m-Transfer" lalu pilih "BCA Virtual Account"</div></div>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">3</div><div class="step-text">Masukkan nomor Virtual Account 8808 1234 5678 9012</div></div>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">4</div><div class="step-text">Periksa detail pembayaran di layar konfirmasi</div></div>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">5</div><div class="step-text">Masukkan PIN BCA Mobile Anda dan klik "OK"</div></div>
-                        <div class="d-flex gap-3 mb-3"><div class="step-num">6</div><div class="step-text">Pembayaran selesai! Simpan bukti pembayaran Anda</div></div>
-                    </div>
                 </div>
 
                 <!-- Order Items -->
                 <div class="section-card">
                     <div class="section-header"><h2>📦 Detail Pesanan</h2></div>
                     <div class="order-details-box">
-                        <div class="order-item">
-                            <div><div class="order-item-name">Paracetamol 500mg</div><div class="order-item-qty">2x Strip 10 tablet</div></div>
-                            <div class="order-item-price">Rp 22.500</div>
-                        </div>
-                        <div class="order-item">
-                            <div><div class="order-item-name">Vitamin C 1000mg</div><div class="order-item-qty">1x Tube 10 tablet</div></div>
-                            <div class="order-item-price">Rp 35.000</div>
-                        </div>
-                        <div class="order-item">
-                            <div><div class="order-item-name">Masker Medis 3 Ply</div><div class="order-item-qty">1x Box 50 pcs</div></div>
-                            <div class="order-item-price">Rp 38.250</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -255,20 +229,15 @@
                 <div class="sidebar-sticky">
                     <div class="summary-card">
                         <h2>Ringkasan Pembayaran</h2>
-                        <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
+                        <!-- <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
                             <div class="summary-item"><span class="summary-label">Subtotal Produk</span><span class="summary-value">Rp 95.750</span></div>
                             <div class="summary-item"><span class="summary-label">Biaya Pengiriman</span><span class="summary-value">Rp 15.000</span></div>
                             <div class="summary-item"><span class="summary-label">Diskon Voucher</span><span class="summary-value" style="color:#dc3545;">- Rp 10.000</span></div>
                             <div class="summary-item"><span class="summary-label">Biaya Admin</span><span class="summary-value">Gratis</span></div>
-                        </div>
+                       
                         <div class="summary-total"><span class="summary-total-label">Total Bayar</span><span class="summary-total-value">Rp 100.750</span></div>
+                         </div> -->
                         <a href="detailpemesanan.php" class="pay-btn">Konfirmasi Pemesanan</a>
-
-                        <div class="d-flex justify-content-center gap-4 mt-4 pt-3 border-top">
-                            <div class="text-center"><div class="security-badge-icon">🔒</div><div class="security-badge-text">Aman &<br>Terenkripsi</div></div>
-                            <div class="text-center"><div class="security-badge-icon">✅</div><div class="security-badge-text">Data<br>Terlindungi</div></div>
-                            <div class="text-center"><div class="security-badge-icon">🏆</div><div class="security-badge-text">Verified<br>Partner</div></div>
-                        </div>
                     </div>
 
                     <div class="help-section">

@@ -192,147 +192,7 @@
                         <input type="checkbox" id="select-all">
                         <label for="select-all">Pilih Semua (5 produk)</label>
                     </div>
-                    <button class="delete-selected">🗑️ Hapus Terpilih</button>
-                </div>
-
-                <!-- Cart Item 1 -->
-                <div class="cart-item d-flex gap-3 mb-3">
-                    <div class="d-flex align-items-center"><input type="checkbox"></div>
-                    <div class="item-image">💊<span class="item-badge">-25%</span></div>
-                    <div class="flex-grow-1">
-                        <div class="item-category">Obat Bebas</div>
-                        <div class="item-name">Paracetamol 500mg</div>
-                        <div class="item-meta d-flex flex-wrap gap-3 mb-3">
-                            <span>📦 Strip 10 tablet</span><span>⭐ 4.8 (234 review)</span>
-                            <span class="stock-status in-stock">✓ Stok tersedia</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap">
-                            <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-3">
-                                <button class="qty-btn">-</button><div class="qty-number">2</div><button class="qty-btn">+</button>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button class="control-btn">💙 Wishlist</button>
-                                <button class="control-btn delete">🗑️ Hapus</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-end">
-                        <div class="price-original">Rp 15.000</div>
-                        <div class="price-current">Rp 11.250</div>
-                        <div class="price-total">Total: <strong>Rp 22.500</strong></div>
-                    </div>
-                </div>
-
-                <!-- Cart Item 2 -->
-                <div class="cart-item d-flex gap-3 mb-3">
-                    <div class="d-flex align-items-center"><input type="checkbox"></div>
-                    <div class="item-image">💊</div>
-                    <div class="flex-grow-1">
-                        <div class="item-category">Vitamin</div>
-                        <div class="item-name">Vitamin C 1000mg Effervescent</div>
-                        <div class="item-meta d-flex flex-wrap gap-3 mb-3">
-                            <span>📦 Tube 10 tablet</span><span>⭐ 4.9 (567 review)</span>
-                            <span class="stock-status in-stock">✓ Stok tersedia</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap">
-                            <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-3">
-                                <button class="qty-btn">-</button><div class="qty-number">1</div><button class="qty-btn">+</button>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button class="control-btn">💙 Wishlist</button>
-                                <button class="control-btn delete">🗑️ Hapus</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-end">
-                        <div class="price-current">Rp 35.000</div>
-                        <div class="price-total">Total: <strong>Rp 35.000</strong></div>
-                    </div>
-                </div>
-
-                <!-- Cart Item 3 -->
-                <div class="cart-item d-flex gap-3 mb-3">
-                    <div class="d-flex align-items-center"><input type="checkbox"></div>
-                    <div class="item-image">💊</div>
-                    <div class="flex-grow-1">
-                        <div class="item-category">Alat Kesehatan</div>
-                        <div class="item-name">Masker Medis 3 Ply Earloop</div>
-                        <div class="item-meta d-flex flex-wrap gap-3 mb-3">
-                            <span>📦 Box 50 pcs</span><span>⭐ 4.6 (1.2k review)</span>
-                            <span class="stock-status in-stock">✓ Stok tersedia</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap">
-                            <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-3">
-                                <button class="qty-btn">-</button><div class="qty-number">1</div><button class="qty-btn">+</button>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button class="control-btn">💙 Wishlist</button>
-                                <button class="control-btn delete">🗑️ Hapus</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-end">
-                        <div class="price-current">Rp 38.250</div>
-                        <div class="price-total">Total: <strong>Rp 38.250</strong></div>
-                    </div>
-                </div>
-
-                <!-- Cart Item 4 -->
-                <div class="cart-item d-flex gap-3 mb-3">
-                    <div class="d-flex align-items-center"><input type="checkbox"></div>
-                    <div class="item-image">💊</div>
-                    <div class="flex-grow-1">
-                        <div class="item-category">Herbal</div>
-                        <div class="item-name">Madu Murni Premium 100% Asli</div>
-                        <div class="item-meta d-flex flex-wrap gap-3 mb-3">
-                            <span>📦 Botol 500ml</span><span>⭐ 4.9 (892 review)</span>
-                            <span class="stock-status limited">⚠️ Stok terbatas (3 pcs)</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap">
-                            <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-3">
-                                <button class="qty-btn">-</button><div class="qty-number">1</div><button class="qty-btn">+</button>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button class="control-btn">💙 Wishlist</button>
-                                <button class="control-btn delete">🗑️ Hapus</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-end">
-                        <div class="price-current">Rp 125.000</div>
-                        <div class="price-total">Total: <strong>Rp 125.000</strong></div>
-                    </div>
-                </div>
-
-                <!-- Cart Item 5 - Out of Stock -->
-                <div class="cart-item out-of-stock d-flex gap-3 mb-3">
-                    <div class="d-flex align-items-center"><input type="checkbox" disabled></div>
-                    <div class="item-image">💊</div>
-                    <div class="flex-grow-1">
-                        <div class="item-category">Vitamin</div>
-                        <div class="item-name">Multivitamin Lengkap Daily Formula</div>
-                        <div class="item-meta d-flex flex-wrap gap-3 mb-3">
-                            <span>📦 Botol 60 tablet</span><span>⭐ 4.8 (445 review)</span>
-                            <span class="stock-status out-of-stock-badge">✗ Stok habis</span>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button class="control-btn">🔔 Beritahu Saya</button>
-                            <button class="control-btn delete">🗑️ Hapus</button>
-                        </div>
-                    </div>
-                    <div class="text-end">
-                        <div class="price-current">Rp 89.000</div>
-                    </div>
-                </div>
-
-                <!-- Recommendations -->
-                <div class="recommendations mt-4">
-                    <h3>💡 Produk yang Mungkin Anda Suka</h3>
-                    <div class="row g-3">
-                        <div class="col-md-4"><div class="recommendation-item"><div class="rec-image">💊</div><div class="rec-name">Obat Batuk Herbal</div><div class="rec-price">Rp 28.500</div></div></div>
-                        <div class="col-md-4"><div class="recommendation-item"><div class="rec-image">💊</div><div class="rec-name">Vitamin D3 1000 IU</div><div class="rec-price">Rp 45.000</div></div></div>
-                        <div class="col-md-4"><div class="recommendation-item"><div class="rec-image">💊</div><div class="rec-name">Hand Sanitizer 100ml</div><div class="rec-price">Rp 15.000</div></div></div>
-                    </div>
+                    <button class="delete-selected">Hapus Terpilih</button>
                 </div>
             </div>
 
@@ -347,7 +207,7 @@
                         </div>
                         <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 217.000</span></div>
                         <a href="pemesanan.php" class="checkout-btn mt-3">Lanjut ke Pembayaran</a>
-                        <div class="text-center text-muted mt-3" style="font-size:13px;">🔒 Transaksi aman & terenkripsi</div>
+                        <div class="text-center text-muted mt-3" style="font-size:13px;">Transaksi aman & terenkripsi</div>
                     </div>
 
                     <div class="promo-card mb-3">
