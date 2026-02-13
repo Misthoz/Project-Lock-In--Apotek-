@@ -190,7 +190,7 @@
                 <div class="select-all-card d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex align-items-center gap-2">
                         <input type="checkbox" id="select-all">
-                        <label for="select-all">Pilih Semua (5 produk)</label>
+                        <label for="select-all">Pilih Semua</label>
                     </div>
                     <button class="delete-selected">Hapus Terpilih</button>
                 </div>
@@ -199,13 +199,13 @@
             <!-- Right: Sidebar -->
             <div class="col-lg-4">
                 <div class="sidebar-sticky">
-                    <div class="summary-card">
+                <div class="summary-card">
                         <h2>Ringkasan Belanja</h2>
-                        <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
+                        <!-- <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
                             <div class="summary-item"><span class="summary-label">Subtotal (4 item)</span><span class="summary-value">Rp 220.750</span></div>
                             <div class="summary-item"><span class="summary-label">Diskon Produk</span><span class="summary-value discount">- Rp 3.750</span></div>
-                        </div>
-                        <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 217.000</span></div>
+                        </div>                                                                                                                                           
+                        <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 217.000</span></div>-->
                         <a href="pemesanan.php" class="checkout-btn mt-3">Lanjut ke Pembayaran</a>
                         <div class="text-center text-muted mt-3" style="font-size:13px;">Transaksi aman & terenkripsi</div>
                     </div>
