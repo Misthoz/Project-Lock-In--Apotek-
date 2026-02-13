@@ -1,5 +1,5 @@
 <?php
-include '../../config/app.php';
+include '../config/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
