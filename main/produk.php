@@ -645,11 +645,6 @@ $result = mysqli_query($db, $query);
                 </div>
                 <div class="col-lg-2">
                     <div class="footer-section">
-                        <h4>Layanan</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Belanja Online</a></li>
-                            <li><a href="#">Upload Resep</a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-2">

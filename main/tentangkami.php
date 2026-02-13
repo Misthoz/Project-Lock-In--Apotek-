@@ -206,14 +206,14 @@
             <h1 class="fade-in">Tentang Kami</h1>
             <p class="fade-in">Mengenal lebih dekat Marcydap Apotek, mitra kesehatan terpercaya Anda.</p>
         </div>
-    </section>
+    </section>  
 
     <!-- Story Section -->
     <section class="story-section">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <div class="story-image">🏥</div>
+                    <div class="story-image"></div>
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Cerita Kami</h2>
@@ -232,13 +232,13 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="mission-card">
-                        <h3>🎯 Misi Kami</h3>
+                        <h3>Misi Kami</h3>
                         <p>Menyediakan produk farmasi berkualitas tinggi yang aman, efektif, dan terjangkau. Memberikan pelayanan kesehatan yang profesional dengan pendekatan yang ramah dan personal kepada setiap pelanggan.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="mission-card">
-                        <h3>🌟 Visi Kami</h3>
+                        <h3>Visi Kami</h3>
                         <p>Menjadi apotek digital terdepan di Indonesia yang memudahkan akses masyarakat terhadap produk kesehatan berkualitas, dengan memanfaatkan teknologi untuk memberikan pengalaman pelayanan kesehatan yang lebih baik.</p>
                     </div>
                 </div>
@@ -296,11 +296,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="timeline">
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2010</div><div class="timeline-desc">Marcydap Apotek didirikan sebagai apotek konvensional pertama di pusat kota, melayani kebutuhan obat-obatan masyarakat sekitar.</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2015</div><div class="timeline-desc">Membuka cabang kedua dan memulai digitalisasi sistem inventori untuk pelayanan yang lebih efisien.</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2019</div><div class="timeline-desc">Meluncurkan platform online untuk pemesanan obat, memperluas jangkauan pelayanan ke seluruh kota.</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2022</div><div class="timeline-desc">Mendapatkan sertifikasi ISO dan penghargaan sebagai Apotek Digital Terbaik tingkat nasional.</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2024</div><div class="timeline-desc">Terus berinovasi dengan fitur konsultasi online dan pengiriman obat yang lebih cepat ke seluruh Indonesia.</div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Pertama</div><div class="timeline-desc">Merencanakan design dengan mengambil refrensi dari web lain, dan melakukan design di figma</div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Kedua</div><div class="timeline-desc">Saat selesai mendesign di figma, maka mulai implementasi desain ke dalam kode.</div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Ketiga</div><div class="timeline-desc">Mulai menambahkan back-end seperti fungsi pemesanan</div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Keempat</div><div class="timeline-desc">Melakukan Finishing dan beberapa sentuhan akhir dan melakukan presentasi</div></div>
+                       
                     </div>
                 </div>
             </div>
@@ -321,7 +321,6 @@
         <div class="container">
             <div class="row g-5 mb-5">
                 <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
                 <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
                 <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
             </div>

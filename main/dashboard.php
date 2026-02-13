@@ -265,11 +265,6 @@ include '../config/db.php';
                     <div class="hero-actions mb-5">
                         <a href="produk.php" class="btn btn-primary-custom">Mulai Belanja 🛒</a>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-4"><div class="stat"><div class="stat-number">50K+</div><div class="stat-label">Pelanggan Aktif</div></div></div>
-                        <div class="col-4"><div class="stat"><div class="stat-number">1000+</div><div class="stat-label">Produk Tersedia</div></div></div>
-                        <div class="col-4"><div class="stat"><div class="stat-number">4.9</div><div class="stat-label">Rating Pengguna</div></div></div>
-                    </div>
                 </div>
                 <div class="col-lg-5 hero-visual">
                     <div class="hero-card">
@@ -302,7 +297,6 @@ include '../config/db.php';
         <div class="container">
             <div class="row g-5 mb-5">
                 <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
                 <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
                 <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
             </div>

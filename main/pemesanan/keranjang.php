@@ -210,14 +210,6 @@
                         <div class="text-center text-muted mt-3" style="font-size:13px;">Transaksi aman & terenkripsi</div>
                     </div>
 
-                    <div class="promo-card mb-3">
-                        <h3>Voucher & Promo</h3>
-                        <div class="promo-input d-flex gap-2">
-                            <input type="text" placeholder="Masukkan kode voucher">
-                            <button class="apply-btn">Gunakan</button>
-                        </div>
-                    </div>
-
                     <div class="benefits-list">
                         <h3>Keuntungan Berbelanja</h3>
                         <div class="benefit-item">✓ Produk 100% original & berkualitas</div>

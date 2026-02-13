@@ -193,7 +193,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod">
                             <label class="form-check-label" for="cod" style="font-size: 14px; font-weight: 600; color: var(--primary-green); cursor: pointer;">
-                                COD (Cash on Delivery)
+                                CIP (Cash in Place)
                             </label>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                                 <div style="color: #999; font-size: 12px; margin-bottom: 5px;">Nomor Virtual Account</div>
                                 <div class="va-number-text">8808 1234 5678 9012</div>
                             </div>
-                            <button class="copy-btn">📋 Salin</button>
+                            <button class="copy-btn">Salin</button>
                         </div>
                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                             <span style="color:#666; font-size:14px;">Total Pembayaran</span>
@@ -218,7 +218,7 @@
 
                 <!-- Order Items -->
                 <div class="section-card">
-                    <div class="section-header"><h2>📦 Detail Pesanan</h2></div>
+                    <div class="section-header"><h2>Detail Pesanan</h2></div>
                     <div class="order-details-box">
                     </div>
                 </div>
@@ -241,7 +241,7 @@
                     </div>
 
                     <div class="help-section">
-                        <h3>💬 Butuh Bantuan?</h3>
+                        <h3>Butuh Bantuan?</h3>
                         <p>Tim kami siap membantu Anda 24/7</p>
                         <button class="help-btn">Hubungi Customer Service</button>
                     </div>

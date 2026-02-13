@@ -173,12 +173,8 @@
                 </div>
 
                 <!-- Voucher -->
-                <div class="section-card">
-                    <div class="section-header"><h2>🎟️ Voucher Diskon</h2></div>
-                    <div class="voucher-input d-flex gap-3">
-                        <input type="text" placeholder="Masukkan kode voucher">
-                        <button class="apply-btn">Gunakan</button>
-                    </div>
+                <div >
+                    
                 </div>
             </div>
 

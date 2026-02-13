@@ -189,7 +189,7 @@
                 <!-- Tracking Timeline -->
                 <div class="section-card">
                     <div class="section-header"><h2>Lacak Pesanan</h2></div>
-                    <div class="tracking-timeline">
+                    <!-- <div class="tracking-timeline">
                         <div class="timeline-line"></div>
                         <div class="timeline-item completed">
                             <div class="timeline-dot">✓</div>
@@ -215,7 +215,7 @@
                                 <div class="timeline-desc">Paket sedang menunggu penerima</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Order Items -->
@@ -292,12 +292,12 @@
                 <!-- Order Summary -->
                 <div class="sidebar-card">
                     <h3>Ringkasan Pembayaran</h3>
-                    <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
+                    <!-- <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
                         <div class="summary-item"><span class="summary-label">Subtotal (3 item)</span><span class="summary-value">Rp 95.750</span></div>
                         <div class="summary-item"><span class="summary-label">Biaya Pengiriman</span><span class="summary-value">Rp 15.000</span></div>
                         <div class="summary-item"><span class="summary-label">Diskon Voucher</span><span class="summary-value discount">- Rp 10.000</span></div>
                     </div>
-                    <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 100.750</span></div>
+                    <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 100.750</span></div>-->
                 </div>
 
                 <!-- Quick Actions -->
@@ -305,17 +305,11 @@
                     <h3>Aksi Cepat</h3>
                     <div class="d-flex flex-column gap-3">
                         <button class="action-btn action-btn-secondary">Chat Customer Service</button>
-                        <button class="action-btn action-btn-secondary">Tulis Review</button>
                         <button class="action-btn action-btn-outline">Batalkan Pesanan</button>
                     </div>
                 </div>
 
                 <!-- Invoice -->
-                <div class="sidebar-card invoice-card text-center">
-                    <h3>Invoice</h3>
-                    <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Download invoice untuk laporan keuangan Anda</p>
-                    <button class="action-btn action-btn-primary">Download Invoice (PDF)</button>
-                </div>
             </div>
         </div>
     </div>

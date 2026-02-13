@@ -208,32 +208,26 @@
     <section class="py-5">
         <div class="container" style="margin-top: -60px; position: relative; z-index: 2;">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="contact-method-card">
-                        <h4>Telepon</h4>
-                        <p>Senin - Jumat, 08.00 - 20.00 WIB</p>
-                        <div class="contact-detail">(021) 1234-5678</div>
-                    </div>
-                </div>
+                
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
                         <h4>Email</h4>
                         <p>Respon dalam 1x24 jam</p>
-                        <div class="contact-detail">info@marcydap.com</div>
+                        <div class="contact-detail">marcydap@gmail.com</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
                         <h4>Live Chat</h4>
                         <p>Respon cepat & real-time</p>
                         <div class="contact-detail">24/7 Online</div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
-                        <h4>WhatsApp</h4>
+                        <h4>WhatsApp / Telepon</h4>
                         <p>Chat langsung dengan tim kami</p>
-                        <div class="contact-detail">+62 812-3456-7890</div>
+                        <div class="contact-detail">+62 812-xxxx-xxxx</div>
                     </div>
                 </div>
             </div>
@@ -300,8 +294,8 @@
                         </div>
                         <div class="customer-service">
                             <h3>Butuh Bantuan Segera?</h3>
-                            <p style="opacity:0.9;">Tim customer service kami siap membantu Anda 24/7. Hubungi hotline kami untuk bantuan darurat.</p>
-                            <p class="mt-3" style="font-size:24px; font-weight:700;">(021) 1234-5678</p>
+                            <p style="opacity:0.9;">Tim customer service kami siap membantu Anda. Hubungi hotline kami untuk bantuan darurat.</p>
+                            <p class="mt-3" style="font-size:24px; font-weight:700;">(021) xxxx xxxx</p>
                         </div>
                     </div>
                 </div>
@@ -327,13 +321,6 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <span>Berapa lama waktu pengiriman?</span>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="faq-answer">Pengiriman dalam kota membutuhkan waktu 1-2 hari kerja. Untuk luar kota, estimasi pengiriman 3-5 hari kerja tergantung lokasi tujuan.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
                             <span>Apakah bisa konsultasi dengan apoteker?</span>
                             <span class="toggle-icon">+</span>
                         </div>
@@ -344,14 +331,7 @@
                             <span>Metode pembayaran apa saja yang tersedia?</span>
                             <span class="toggle-icon">+</span>
                         </div>
-                        <div class="faq-answer">Kami menerima pembayaran melalui transfer bank, e-wallet (GoPay, OVO, Dana, ShopeePay), kartu kredit/debit, dan COD (Cash on Delivery).</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <span>Bagaimana kebijakan pengembalian barang?</span>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="faq-answer">Pengembalian barang dapat dilakukan dalam waktu 7 hari setelah barang diterima jika terdapat cacat produk atau ketidaksesuaian. Hubungi customer service kami untuk proses pengembalian.</div>
+                        <div class="faq-answer">Kami menerima pembayaran melalui, e-wallet (GoPay, OVO, Dana, ShopeePay), dan CIP (Cash in Place).</div>
                     </div>
                 </div>
             </div>
@@ -362,9 +342,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-5 mb-5">
-                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
+                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
                 <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
             </div>
             <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
