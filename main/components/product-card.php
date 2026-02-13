@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Reusable Product Card Component
  * 
@@ -9,17 +10,17 @@
  * - $badge_class: string (optional) - class CSS untuk badge
  */
 
-if(!isset($product) || empty($product)) {
+if (!isset($product) || empty($product)) {
     return;
 }
 
 // Format harga
 $harga_format = number_format($product['harga'], 0, ',', '.');
 
-// Convert gambar blob ke base64 jika ada
+// Gambar disimpan sebagai URL (VARCHAR) di database
 $gambar_src = '';
-if(!empty($product['gambar'])) {
-    $gambar_src = 'data:image/jpeg;base64,' . base64_encode($product['gambar']);
+if (!empty($product['gambar'])) {
+    $gambar_src = $product['gambar'];
 }
 
 // Badge settings (optional)
@@ -30,20 +31,20 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
 
 <!-- Product Card -->
 <div class="product-card">
-    <?php if($show_badge && !empty($badge_text)) { ?>
-    <div class="product-badges">
-        <span class="product-badge <?php echo $badge_class; ?>"><?php echo htmlspecialchars($badge_text); ?></span>
-    </div>
+    <?php if ($show_badge && !empty($badge_text)) { ?>
+        <div class="product-badges">
+            <span class="product-badge <?php echo $badge_class; ?>"><?php echo htmlspecialchars($badge_text); ?></span>
+        </div>
     <?php } ?>
-    
+
     <button class="wishlist-btn">♡</button>
-    
-    <div class="product-image" style="<?php if(!empty($gambar_src)) echo 'background-image: url(' . $gambar_src . '); background-size: cover; background-position: center;'; ?>">
-        <?php if(empty($gambar_src)) { ?>
+
+    <div class="product-image" style="<?php if (!empty($gambar_src)) echo 'background-image: url(' . $gambar_src . '); background-size: cover; background-position: center;'; ?>">
+        <?php if (empty($gambar_src)) { ?>
             <div class="quick-view">Lihat Detail</div>
         <?php } ?>
     </div>
-    
+
     <div class="product-content">
         <div class="product-category">Produk Kesehatan</div>
         <h3 class="product-title"><?php echo htmlspecialchars($product['nama_barang']); ?></h3>
@@ -58,7 +59,7 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
             <div>
                 <span class="price-current">Rp <?php echo $harga_format; ?></span>
             </div>
-            <button class="add-btn" onclick="addToCart(<?php echo $product['id_barang']; ?>)">
+            <button class="add-btn" onclick="addToCart('<?php echo htmlspecialchars($product['nama_barang'], ENT_QUOTES); ?>')">
                 <span>🛒</span>
                 <span>Tambah</span>
             </button>

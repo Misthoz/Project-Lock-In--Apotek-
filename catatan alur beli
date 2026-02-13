@@ -1,0 +1,19 @@
+┌──────────┐       ┌──────────────┐       ┌───────────────────┐
+│   user   │──1:N──│  pemesanan   │──1:N──│ detail_pemesanan  │
+└──────────┘       └──────────────┘       └───────────────────┘
+                                                   │
+                                                 N:1
+                                                   │
+                                              ┌──────────┐
+                                              │  barang  │
+                                              └──────────┘
+
+produk.php          → Pilih barang, tambah ke SESSION['keranjang']
+       ↓
+keranjang.php       → Lihat/edit/hapus item, update jumlah
+       ↓
+pemesanan.php       → Isi nama, umur, no_hp + lihat lokasi apotek
+       ↓
+pembayaran.php      → Pilih ewallet/cod → INSERT ke DB (user, pemesanan, detail_pemesanan)
+       ↓
+detailpemesanan.php → Tampilkan struk dari DB (JOIN 3 tabel) + tombol cetak

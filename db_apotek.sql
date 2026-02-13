@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 13, 2026 at 02:42 PM
+-- Generation Time: Feb 13, 2026 at 05:01 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -35,15 +35,25 @@ CREATE TABLE `barang` (
   `gambar` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `deskripsi`, `gambar`) VALUES
+(1, 'Paracetamol 500mg', '15000', 'Obat pereda demam dan nyeri. Dosis 500mg per tablet. Aman untuk dewasa dan anak-anak di atas 12 tahun.', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lokasi`
+-- Table structure for table `detail_pemesanan`
 --
 
-CREATE TABLE `lokasi` (
-  `id_lokasi` int NOT NULL,
-  `lokasi` varchar(100) NOT NULL
+CREATE TABLE `detail_pemesanan` (
+  `id_detail` int NOT NULL,
+  `id_pemesanan` int NOT NULL,
+  `id_barang` int NOT NULL,
+  `jumlah` int NOT NULL,
+  `harga_satuan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -53,9 +63,12 @@ CREATE TABLE `lokasi` (
 --
 
 CREATE TABLE `pemesanan` (
+  `id_pemesanan` int NOT NULL,
   `id_user` int NOT NULL,
-  `id_barang` int NOT NULL,
-  `id_lokasi` int NOT NULL
+  `tanggal_pesan` datetime NOT NULL,
+  `metode_pembayaran` enum('ewallet','cod') NOT NULL,
+  `status` enum('menunggu','diproses','siap_diambil','selesai','dibatalkan') NOT NULL,
+  `total_harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -82,18 +95,19 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `lokasi`
+-- Indexes for table `detail_pemesanan`
 --
-ALTER TABLE `lokasi`
-  ADD PRIMARY KEY (`id_lokasi`);
+ALTER TABLE `detail_pemesanan`
+  ADD PRIMARY KEY (`id_detail`),
+  ADD KEY `id_pemesanan` (`id_pemesanan`),
+  ADD KEY `id_barang` (`id_barang`);
 
 --
 -- Indexes for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD UNIQUE KEY `id_barang` (`id_barang`),
-  ADD UNIQUE KEY `id_lokasi` (`id_lokasi`);
+  ADD PRIMARY KEY (`id_pemesanan`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `user`
@@ -112,10 +126,16 @@ ALTER TABLE `barang`
   MODIFY `id_barang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `lokasi`
+-- AUTO_INCREMENT for table `detail_pemesanan`
 --
-ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `detail_pemesanan`
+  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  MODIFY `id_pemesanan` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -128,12 +148,17 @@ ALTER TABLE `user`
 --
 
 --
+-- Constraints for table `detail_pemesanan`
+--
+ALTER TABLE `detail_pemesanan`
+  ADD CONSTRAINT `detail_ibfk_1` FOREIGN KEY (`id_pemesanan`) REFERENCES `pemesanan` (`id_pemesanan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pemesanan_ibfk_3` FOREIGN KEY (`id_lokasi`) REFERENCES `lokasi` (`id_lokasi`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

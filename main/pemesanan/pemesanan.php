@@ -155,20 +155,14 @@
                 <!-- Shipping Address -->
                 <div class="section-card">
                     <div class="section-header d-flex justify-content-between align-items-center">
-                        <h2>Alamat Penerimaan</h2>
-                        <button class="edit-btn">Ubah</button>
+                        <h2>Alamat Apotek</h2>
                     </div>
                     <div class="address-card">
                         <div class="mb-3"><span class="address-type">Apotek</span></div>
-                        <div class="address-name">Sarah Wijaya</div>
-                        <div class="address-phone">+62 812-3456-7890</div>
                         <div class="address-detail">
-                            Jl. Kemang Raya No. 45, RT 001/RW 005<br>
-                            Bangka, Mampang Prapatan<br>
-                            Jakarta Selatan, DKI Jakarta 12730
+                            Jl. Gurami
                         </div>
                     </div>
-                    <button class="add-address-btn">+ Tambah Alamat Baru</button>
                 </div>
 
                 <!-- Cart Items -->

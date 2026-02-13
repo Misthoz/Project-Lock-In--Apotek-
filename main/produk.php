@@ -578,10 +578,6 @@ $result = mysqli_query($db, $query);
                     <div class="filter-section">
                         <h3>Kategori</h3>
                         <div class="filter-option"><input type="checkbox" id="cat2"><label for="cat2">Obat Bebas</label><span class="filter-count">(156)</span></div>
-                        <div class="filter-option"><input type="checkbox" id="cat3"><label for="cat3">Vitamin & Suplemen</label><span class="filter-count">(124)</span></div>
-                        <div class="filter-option"><input type="checkbox" id="cat4"><label for="cat4">Herbal</label><span class="filter-count">(89)</span></div>
-                        <div class="filter-option"><input type="checkbox" id="cat5"><label for="cat5">Alat Kesehatan</label><span class="filter-count">(67)</span></div>
-                        <div class="filter-option"><input type="checkbox" id="cat6"><label for="cat6">Perawatan Bayi</label><span class="filter-count">(45)</span></div>
                     </div>
                     <div class="filter-section">
                         <button class="clear-filters">Reset Filter</button>
@@ -592,27 +588,27 @@ $result = mysqli_query($db, $query);
             <!-- Products Area -->
             <div class="col-lg-9">
                 <div class="mb-4">
-                    <?php 
+                    <?php
                     $total_produk = mysqli_num_rows($result);
                     ?>
                     <div class="products-count">Menampilkan <strong>1-<?php echo $total_produk; ?></strong> dari <strong><?php echo $total_produk; ?></strong> produk</div>
                 </div>
                 <div class="row g-4">
-                    <?php 
+                    <?php
                     // Cek apakah ada data produk
-                    if(mysqli_num_rows($result) > 0) {
+                    if (mysqli_num_rows($result) > 0) {
                         // Loop untuk menampilkan setiap produk
-                        while($row = mysqli_fetch_assoc($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
                             // Set product data untuk component
                             $product = $row;
                     ?>
-                    
-                    <!-- Product Card -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <?php include 'components/product-card.php'; ?>
-                    </div>
-                    
-                    <?php 
+
+                            <!-- Product Card -->
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <?php include 'components/product-card.php'; ?>
+                            </div>
+
+                    <?php
                         } // End while
                     } else {
                         // Jika tidak ada produk
@@ -641,28 +637,61 @@ $result = mysqli_query($db, $query);
     <footer class="footer">
         <div class="container">
             <div class="row g-5 mb-5">
-                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
-                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+                <div class="col-lg-5">
+                    <div class="footer-brand">
+                        <h3>MARCYDAP</h3>
+                        <p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h4>Layanan</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Belanja Online</a></li>
+                            <li><a href="#">Upload Resep</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h4>Perusahaan</h4>
+                        <ul class="footer-links">
+                            <li><a href="tentangkami.php">Tentang Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h4>Bantuan</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="hubungikami.php">Hubungi Kami</a></li>
+                            <li><a href="#">Syarat & Ketentuan</a></li>
+                            <li><a href="#">Kebijakan Privasi</a></li>
+                            <li><a href="#">Cara Pemesanan</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Fungsi untuk menambah produk ke keranjang
-        function addToCart(productId) {
+        function addToCart(namaBarang) {
             // Implementasi bisa disesuaikan dengan sistem keranjang Anda
-            alert('Produk dengan ID ' + productId + ' ditambahkan ke keranjang!');
+            alert('Produk ' + namaBarang + ' ditambahkan ke keranjang!');
             // TODO: Implementasi AJAX untuk menambah ke keranjang
         }
-        
+
         // Fungsi untuk wishlist
         document.querySelectorAll('.wishlist-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                if(this.innerHTML === '♡') {
+                if (this.innerHTML === '♡') {
                     this.innerHTML = '♥';
                     this.style.color = '#ff6b6b';
                 } else {
