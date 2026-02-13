@@ -193,12 +193,12 @@
                 <div class="sidebar-sticky">
                     <div class="summary-card">
                         <h2>Ringkasan Pesanan</h2>
-                        <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
+                        <!-- <div class="d-flex flex-column gap-3 mb-3 pb-3 border-bottom">
                             <div class="summary-item"><span class="summary-label">Subtotal (3 item)</span><span class="summary-value">Rp 95.750</span></div>
                             <div class="summary-item"><span class="summary-label">Biaya Pengiriman</span><span class="summary-value">Rp 15.000</span></div>
                             <div class="summary-item"><span class="summary-label">Diskon Voucher</span><span class="summary-value discount">- Rp 10.000</span></div>
                         </div>
-                        <div class="summary-total"><span class="summary-total-label">Total Pembayaran</span><span class="summary-total-value">Rp 100.750</span></div>
+                        <div class="summary-total"><span class="summary-total-label">Total Pembayaran</span><span class="summary-total-value">Rp 100.750</span></div> -->
                         <a href="pembayaran.php" class="checkout-btn">Lanjut ke Pembayaran</a>
                         <div class="text-center text-muted mt-3" style="font-size:13px;">🔒 Transaksi aman & terenkripsi</div>
                         <div class="benefits-list">
