@@ -562,7 +562,7 @@ $result = mysqli_query($db, $query);
             <div class="d-flex gap-3">
                 <div class="search-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Cari obat, vitamin, atau produk kesehatan...">
+                    <input type="text" placeholder="Cari obat">
                 </div>
                 <button class="search-btn">Cari</button>
             </div>
