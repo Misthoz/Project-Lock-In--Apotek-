@@ -293,8 +293,6 @@ include '../config/db.php';
             </div>
             <div class="row g-4">
                 <div class="col-lg-4"><div class="service-card"><h3>Belanja Online</h3><p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.php" class="service-link">Mulai Belanja →</a></div></div>
-                <div class="col-lg-4"><div class="service-card"><h3>Upload Resep</h3><p>Kirim resep dokter secara digital dan kami akan memproses pesanan Anda dengan cepat dan akurat.</p><a href="#" class="service-link">Upload Resep →</a></div></div>
-                <div class="col-lg-4"><div class="service-card"><h3>Apotek Terdekat</h3><p>Temukan 45+ apotek Marcydap di berbagai kota. Kunjungi langsung untuk pelayanan personal.</p><a href="#" class="service-link">Cari Lokasi →</a></div></div>
             </div>
         </div>
     </section>
