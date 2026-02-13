@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,158 +17,477 @@
             --bg-cream: #faf8f3;
             --text-dark: #1a1a1a;
         }
-        body { font-family: 'DM Sans', sans-serif; background: var(--bg-cream); color: var(--text-dark); }
 
-        .header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        }
+
         .logo-icon {
-            width: 45px; height: 45px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
-        .logo-icon::before, .logo-icon::after { content: ''; position: absolute; background: white; }
-        .logo-icon::before { width: 5px; height: 20px; }
-        .logo-icon::after { width: 20px; height: 5px; }
-        .logo-text h1 { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 24px; margin: 0; }
-        .logo-text p { color: var(--accent-green); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
-        .nav-link-custom { color: var(--text-dark) !important; font-weight: 500; transition: color 0.3s ease; }
-        .nav-link-custom:hover, .nav-link-custom.active { color: var(--secondary-green) !important; }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+
+        .logo-icon::before {
+            width: 5px;
+            height: 20px;
+        }
+
+        .logo-icon::after {
+            width: 20px;
+            height: 5px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .logo-text p {
+            color: var(--accent-green);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .nav-link-custom {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom:hover,
+        .nav-link-custom.active {
+            color: var(--secondary-green) !important;
+        }
 
         .search-bar {
             background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
             padding: 20px 0;
         }
-        .search-wrapper { position: relative; flex: 1; }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
         .search-wrapper input {
-            width: 100%; padding: 14px 20px 14px 50px; border: none; border-radius: 25px;
-            font-size: 15px; font-family: 'DM Sans', sans-serif; background: white;
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            background: white;
         }
-        .search-wrapper input:focus { outline: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); }
+
+        .search-wrapper input:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
         .search-wrapper .search-icon {
-            position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
-            font-size: 18px; color: var(--accent-green);
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--accent-green);
         }
+
         .search-btn {
-            padding: 14px 30px; background: var(--primary-green); color: white; border: none;
-            border-radius: 25px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+            padding: 14px 30px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .search-btn:hover { background: #143d22; transform: scale(1.02); }
+
+        .search-btn:hover {
+            background: #143d22;
+            transform: scale(1.02);
+        }
 
         .filter-section {
-            background: white; border-radius: 16px; padding: 25px;
-            margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
-        .filter-section h3 { font-size: 18px; color: var(--primary-green); margin-bottom: 20px; }
-        .filter-option {
-            display: flex; align-items: center; gap: 10px; padding: 10px 0;
-            cursor: pointer; transition: all 0.2s ease;
-        }
-        .filter-option:hover { padding-left: 5px; }
-        .filter-option input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent-green); }
-        .filter-option label { font-size: 14px; color: #555; cursor: pointer; flex: 1; margin: 0; }
-        .filter-count { font-size: 12px; color: #999; }
-        .clear-filters {
-            width: 100%; padding: 12px; background: white;
-            border: 2px solid var(--accent-green); color: var(--secondary-green);
-            border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
-        }
-        .clear-filters:hover { background: var(--light-green); }
 
-        .products-count { font-size: 16px; color: #666; }
-        .products-count strong { color: var(--primary-green); }
+        .filter-section h3 {
+            font-size: 18px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-option:hover {
+            padding-left: 5px;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+
+        .filter-option label {
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+        }
+
+        .filter-count {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .clear-filters {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 2px solid var(--accent-green);
+            color: var(--secondary-green);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-filters:hover {
+            background: var(--light-green);
+        }
+
+        .products-count {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .products-count strong {
+            color: var(--primary-green);
+        }
 
         .product-card {
-            background: white; border-radius: 16px; overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s ease;
-            position: relative; height: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
         }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(26, 71, 42, 0.15); }
-        .product-badges { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(26, 71, 42, 0.15);
+        }
+
+        .product-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 2;
+        }
+
         .product-badge {
-            padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;
-            color: white; text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
         }
-        .badge-promo { background: #ff6b6b; }
-        .badge-new { background: #4dabf7; }
-        .badge-best { background: #ffa500; }
-        .badge-prescription { background: var(--secondary-green); }
+
+        .badge-promo {
+            background: #ff6b6b;
+        }
+
+        .badge-new {
+            background: #4dabf7;
+        }
+
+        .badge-best {
+            background: #ffa500;
+        }
+
+        .badge-prescription {
+            background: var(--secondary-green);
+        }
+
         .wishlist-btn {
-            position: absolute; top: 12px; right: 12px; width: 38px; height: 38px;
-            background: white; border: none; border-radius: 50%; cursor: pointer;
-            font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 2;
             transition: all 0.3s ease;
         }
-        .wishlist-btn:hover { background: var(--accent-green); transform: scale(1.1); }
+
+        .wishlist-btn:hover {
+            background: var(--accent-green);
+            transform: scale(1.1);
+        }
+
         .product-image {
-            height: 220px; background: linear-gradient(135deg, #f8f9fa, #e8f5e9);
-            display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            height: 220px;
+            background: linear-gradient(135deg, #f8f9fa, #e8f5e9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        .product-image::before { content: '💊'; font-size: 70px; opacity: 0.3; }
+
+        .product-image::before {
+            content: '💊';
+            font-size: 70px;
+            opacity: 0.3;
+        }
+
         .quick-view {
-            position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%);
-            padding: 10px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            border-radius: 20px; font-size: 13px; font-weight: 600;
-            color: var(--secondary-green); cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
-        .product-card:hover .quick-view { bottom: 15px; }
-        .product-content { padding: 18px; }
-        .product-category { color: var(--accent-green); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .product-title { font-size: 16px; font-weight: 600; color: var(--primary-green); margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .product-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-        .stars { color: #ffa500; font-size: 14px; }
-        .rating-count { font-size: 12px; color: #999; }
-        .product-meta { display: flex; gap: 12px; margin-bottom: 12px; font-size: 12px; color: #666; }
-        .product-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #f0f0f0; }
-        .price-original { font-size: 12px; color: #999; text-decoration: line-through; }
-        .price-current { font-size: 20px; font-weight: 700; color: var(--secondary-green); }
+
+        .product-card:hover .quick-view {
+            bottom: 15px;
+        }
+
+        .product-content {
+            padding: 18px;
+        }
+
+        .product-category {
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: #ffa500;
+            font-size: 14px;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .price-original {
+            font-size: 12px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .price-current {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+
         .add-btn {
-            padding: 10px 18px; background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
-            color: white; border: none; border-radius: 10px; font-size: 13px; font-weight: 600;
-            cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .add-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3); }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3);
+        }
 
         .page-btn {
-            width: 40px; height: 40px; border: 2px solid #e8f5e9; background: white;
-            color: var(--text-dark); border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #e8f5e9;
+            background: white;
+            color: var(--text-dark);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
-        .page-btn:hover, .page-btn.active { background: var(--accent-green); color: white; border-color: var(--accent-green); }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--accent-green);
+            color: white;
+            border-color: var(--accent-green);
+        }
 
         .floating-cart {
-            position: fixed; bottom: 30px; right: 30px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
-            color: white; padding: 18px 30px; border-radius: 50px;
-            box-shadow: 0 8px 30px rgba(45, 106, 79, 0.4); cursor: pointer;
-            transition: all 0.3s ease; z-index: 1000;
-            display: flex; align-items: center; gap: 12px; text-decoration: none;
-        }
-        .floating-cart:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(45, 106, 79, 0.5); color: white; }
-        .cart-count {
-            background: white; color: var(--secondary-green); width: 28px; height: 28px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 13px; font-weight: 700;
+            color: white;
+            padding: 18px 30px;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(45, 106, 79, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .sidebar-sticky { position: sticky; top: 100px; }
+        .floating-cart:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(45, 106, 79, 0.5);
+            color: white;
+        }
+
+        .cart-count {
+            background: white;
+            color: var(--secondary-green);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .sidebar-sticky {
+            position: sticky;
+            top: 100px;
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="dashboard.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
-                    <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
+                    <div class="logo-text">
+                        <h1>MARCYDAP</h1>
+                        <p>APOTEK</p>
+                    </div>
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.html">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom active" href="produk.html">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="tentangkami.html">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.html">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.php">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom active" href="produk.php">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="tentangkami.php">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.php">Kontak</a></li>
                     </ul>
                 </nav>
             </div>
@@ -219,7 +539,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-promo">PROMO 25%</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Obat Bebas</div>
                                 <h3 class="product-title">Paracetamol 500mg - Pereda Nyeri & Demam</h3>
@@ -237,7 +559,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-new">BARU</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Vitamin</div>
                                 <h3 class="product-title">Vitamin C 1000mg Effervescent</h3>
@@ -255,7 +579,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-best">TERLARIS</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Herbal</div>
                                 <h3 class="product-title">Madu Murni Premium 100% Asli</h3>
@@ -273,7 +599,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-prescription">RESEP</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Obat Resep</div>
                                 <h3 class="product-title">Amoxicillin 500mg Antibiotik</h3>
@@ -291,7 +619,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-promo">PROMO 15%</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Alat Kesehatan</div>
                                 <h3 class="product-title">Masker Medis 3 Ply Earloop</h3>
@@ -308,7 +638,9 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="product-card">
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Vitamin</div>
                                 <h3 class="product-title">Multivitamin Lengkap Daily Formula</h3>
@@ -326,7 +658,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-new">BARU</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Alat Kesehatan</div>
                                 <h3 class="product-title">Termometer Digital Infrared</h3>
@@ -344,7 +678,9 @@
                         <div class="product-card">
                             <div class="product-badges"><span class="product-badge badge-promo">PROMO 30%</span></div>
                             <button class="wishlist-btn">♡</button>
-                            <div class="product-image"><div class="quick-view">Lihat Detail</div></div>
+                            <div class="product-image">
+                                <div class="quick-view">Lihat Detail</div>
+                            </div>
                             <div class="product-content">
                                 <div class="product-category">Obat Bebas</div>
                                 <h3 class="product-title">Obat Batuk Herbal Sirup 100ml</h3>
@@ -371,10 +707,12 @@
     </div>
 
     <!-- Floating Cart -->
-    <a href="pemesanan/keranjang.html" class="floating-cart">
-        <span>🛒</span><span>Keranjang</span><div class="cart-count">5</div>
+    <a href="pemesanan/keranjang.php" class="floating-cart">
+        <span>🛒</span><span>Keranjang</span>
+        <div class="cart-count">5</div>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

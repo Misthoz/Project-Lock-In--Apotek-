@@ -233,7 +233,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.html">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.php">
                 <div class="logo-symbol"></div>
                 <span class="logo-text">MARCYDAP</span>
             </a>
@@ -242,15 +242,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tentangkami.html">Tentang</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hubungikami.html">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentangkami.php">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hubungikami.php">Kontak</a></li>
                 </ul>
-            </div>
-            <div class="d-none d-lg-flex gap-3">
-                <a href="../login/login.php" class="btn btn-ghost">Login</a>
-                <a href="../login/daftar.php" class="btn btn-primary-custom">Daftar</a>
             </div>
         </div>
     </nav>
@@ -264,7 +260,7 @@
                     <h1>Kesehatan<br><span class="highlight">dalam</span><br>Genggaman</h1>
                     <p class="hero-description">Akses mudah ke ribuan produk kesehatan berkualitas, konsultasi profesional, dan pengiriman cepat ke seluruh Indonesia. Karena kesehatan Anda adalah prioritas kami.</p>
                     <div class="hero-actions mb-5">
-                        <a href="produk.html" class="btn btn-primary-custom">Mulai Belanja 🛒</a>
+                        <a href="produk.php" class="btn btn-primary-custom">Mulai Belanja 🛒</a>
                     </div>
                     <div class="row g-4">
                         <div class="col-4"><div class="stat"><div class="stat-number">50K+</div><div class="stat-label">Pelanggan Aktif</div></div></div>
@@ -293,7 +289,7 @@
                 <p class="section-description mx-auto" style="max-width:700px;">Dari konsultasi hingga pengiriman, kami hadir untuk memudahkan perjalanan kesehatan Anda</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4"><div class="service-card"><h3>Belanja Online</h3><p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.html" class="service-link">Mulai Belanja →</a></div></div>
+                <div class="col-lg-4"><div class="service-card"><h3>Belanja Online</h3><p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.php" class="service-link">Mulai Belanja →</a></div></div>
                 <div class="col-lg-4"><div class="service-card"><h3>Upload Resep</h3><p>Kirim resep dokter secara digital dan kami akan memproses pesanan Anda dengan cepat dan akurat.</p><a href="#" class="service-link">Upload Resep →</a></div></div>
                 <div class="col-lg-4"><div class="service-card"><h3>Apotek Terdekat</h3><p>Temukan 45+ apotek Marcydap di berbagai kota. Kunjungi langsung untuk pelayanan personal.</p><a href="#" class="service-link">Cari Lokasi →</a></div></div>
             </div>
@@ -337,8 +333,8 @@
             <div class="row g-5 mb-5">
                 <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
                 <div class="col-lg-2"><div class="footer-section"><h4>Layanan</h4><ul class="footer-links"><li><a href="#">Belanja Online</a></li><li><a href="#">Upload Resep</a></li></ul></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.html">Tentang Kami</a></li></ul></div></div>
-                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.html">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
+                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
             </div>
             <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
         </div>

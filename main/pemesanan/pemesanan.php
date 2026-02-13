@@ -135,7 +135,7 @@
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="../dashboard.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="../dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
                     <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
                 </a>
@@ -244,7 +244,7 @@
                             <div class="summary-item"><span class="summary-label">Diskon Voucher</span><span class="summary-value discount">- Rp 10.000</span></div>
                         </div>
                         <div class="summary-total"><span class="summary-total-label">Total Pembayaran</span><span class="summary-total-value">Rp 100.750</span></div>
-                        <a href="pembayaran.html" class="checkout-btn">Lanjut ke Pembayaran</a>
+                        <a href="pembayaran.php" class="checkout-btn">Lanjut ke Pembayaran</a>
                         <div class="text-center text-muted mt-3" style="font-size:13px;">🔒 Transaksi aman & terenkripsi</div>
                         <div class="benefits-list">
                             <h3>✨ Keuntungan Berbelanja</h3>

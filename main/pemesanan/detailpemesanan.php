@@ -159,7 +159,7 @@
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="../dashboard.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="../dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
                     <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
                 </a>

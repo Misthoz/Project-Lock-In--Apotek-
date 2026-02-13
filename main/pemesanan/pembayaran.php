@@ -160,7 +160,7 @@
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="../dashboard.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="../dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
                     <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
                 </a>
@@ -262,7 +262,7 @@
                             <div class="summary-item"><span class="summary-label">Biaya Admin</span><span class="summary-value">Gratis</span></div>
                         </div>
                         <div class="summary-total"><span class="summary-total-label">Total Bayar</span><span class="summary-total-value">Rp 100.750</span></div>
-                        <a href="detailpemesanan.html" class="pay-btn">Konfirmasi Pemesanan</a>
+                        <a href="detailpemesanan.php" class="pay-btn">Konfirmasi Pemesanan</a>
 
                         <div class="d-flex justify-content-center gap-4 mt-4 pt-3 border-top">
                             <div class="text-center"><div class="security-badge-icon">🔒</div><div class="security-badge-text">Aman &<br>Terenkripsi</div></div>

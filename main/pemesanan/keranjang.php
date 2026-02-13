@@ -168,11 +168,11 @@
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="../produk.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="../produk.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
                     <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
                 </a>
-                <a href="../produk.html" class="continue-shopping">← Lanjut Belanja</a>
+                <a href="../produk.php" class="continue-shopping">← Lanjut Belanja</a>
             </div>
         </div>
     </header>
@@ -346,7 +346,7 @@
                             <div class="summary-item"><span class="summary-label">Diskon Produk</span><span class="summary-value discount">- Rp 3.750</span></div>
                         </div>
                         <div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Rp 217.000</span></div>
-                        <a href="pemesanan.html" class="checkout-btn mt-3">Lanjut ke Pembayaran</a>
+                        <a href="pemesanan.php" class="checkout-btn mt-3">Lanjut ke Pembayaran</a>
                         <div class="text-center text-muted mt-3" style="font-size:13px;">🔒 Transaksi aman & terenkripsi</div>
                     </div>
 

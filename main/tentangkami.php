@@ -129,16 +129,16 @@
     <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="dashboard.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
                     <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.html">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="produk.html">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom active" href="tentangkami.html">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.html">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.php">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="produk.php">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom active" href="tentangkami.php">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.php">Kontak</a></li>
                     </ul>
                 </nav>
             </div>
@@ -309,7 +309,7 @@
         <div class="container">
             <h2>Ingin Mengenal Kami Lebih Dekat?</h2>
             <p class="mb-4" style="opacity:0.9;">Hubungi kami untuk informasi lebih lanjut tentang layanan dan produk kami.</p>
-            <a href="hubungikami.html" class="cta-btn">Hubungi Kami →</a>
+            <a href="hubungikami.php" class="cta-btn">Hubungi Kami →</a>
         </div>
     </section>
 
