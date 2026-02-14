@@ -426,20 +426,6 @@ unset($_SESSION['id_pemesanan']);
                     <span>Rp <?php echo number_format($pesanan['total_harga'], 0, ',', '.'); ?></span>
                 </div>
             </div>
-
-            <div class="struk-footer">
-                <p>Silakan ambil pesanan Anda di lokasi apotek.</p>
-                <p>Tunjukkan struk ini saat pengambilan.</p>
-                <div class="no-print">
-                    <button class="btn-print" onclick="window.print()">
-                        <i class="bi bi-printer"></i> Cetak Struk
-                    </button>
-                    <br>
-                    <a href="produk.php" class="btn-home">
-                        <i class="bi bi-house"></i> Kembali ke Beranda
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 

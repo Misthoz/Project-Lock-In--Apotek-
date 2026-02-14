@@ -59,10 +59,13 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
             <div>
                 <span class="price-current">Rp <?php echo $harga_format; ?></span>
             </div>
-            <button class="add-btn" onclick="addToCart('<?php echo htmlspecialchars($product['nama_barang'], ENT_QUOTES); ?>')">
-                <span>🛒</span>
-                <span>Tambah</span>
-            </button>
+            <form method="POST" style="margin:0;">
+                <input type="hidden" name="id_barang" value="<?php echo $product['id_barang']; ?>">
+                <button type="submit" name="add_to_cart" class="add-btn">
+                    <span>🛒</span>
+                    <span>Tambah</span>
+                </button>
+            </form>
         </div>
     </div>
 </div>

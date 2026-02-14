@@ -4,7 +4,7 @@ include 'config/db.php';
 // Proses tambah ke keranjang
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     $id_barang = (int) $_POST['id_barang'];
-    
+
     // Cek apakah barang sudah ada di keranjang
     $found = false;
     foreach ($_SESSION['keranjang'] as &$item) {
@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
         }
     }
     unset($item);
-    
+
     // Jika belum ada, tambahkan
     if (!$found) {
         $query = "SELECT * FROM barang WHERE id_barang = $id_barang";
         $result_item = mysqli_query($db, $query);
         $barang = mysqli_fetch_assoc($result_item);
-        
+
         if ($barang) {
             $_SESSION['keranjang'][] = [
                 'id_barang' => $barang['id_barang'],
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
             ];
         }
     }
-    
+
     // Redirect untuk mencegah resubmit form
     header("Location: produk.php?added=1");
     exit;
@@ -192,8 +192,15 @@ foreach ($_SESSION['keranjang'] as $item) {
         }
 
         @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -203,12 +210,17 @@ foreach ($_SESSION['keranjang'] as $item) {
     <header class="header sticky-top">
         <div class="container">
             <h1>🏥 Marcydap Apotek</h1>
-            <a href="keranjang.php" class="cart-link">
-                <i class="bi bi-cart3"></i> Keranjang
-                <?php if ($total_keranjang > 0) { ?>
-                    <span class="cart-badge"><?php echo $total_keranjang; ?></span>
-                <?php } ?>
-            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cek_pesanan.php" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                    <i class="bi bi-search"></i> Cek Pesanan
+                </a>
+                <a href="keranjang.php" class="cart-link">
+                    <i class="bi bi-cart3"></i> Keranjang
+                    <?php if ($total_keranjang > 0) { ?>
+                        <span class="cart-badge"><?php echo $total_keranjang; ?></span>
+                    <?php } ?>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -225,7 +237,7 @@ foreach ($_SESSION['keranjang'] as $item) {
         <p class="text-muted">Temukan obat dan produk kesehatan yang Anda butuhkan</p>
 
         <div class="product-grid">
-            <?php while ($product = mysqli_fetch_assoc($result)) { 
+            <?php while ($product = mysqli_fetch_assoc($result)) {
                 $harga_format = number_format($product['harga'], 0, ',', '.');
             ?>
                 <div class="product-card">

@@ -1,9 +1,51 @@
 <?php
 include '../config/db.php';
 
+// Proses tambah ke keranjang
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
+    $id_barang = (int) $_POST['id_barang'];
+
+    // Cek apakah barang sudah ada di keranjang
+    $found = false;
+    foreach ($_SESSION['keranjang'] as &$item) {
+        if ($item['id_barang'] == $id_barang) {
+            $item['jumlah'] += 1;
+            $found = true;
+            break;
+        }
+    }
+    unset($item);
+
+    // Jika belum ada, tambahkan
+    if (!$found) {
+        $query = "SELECT * FROM barang WHERE id_barang = $id_barang";
+        $result_item = mysqli_query($db, $query);
+        $barang = mysqli_fetch_assoc($result_item);
+
+        if ($barang) {
+            $_SESSION['keranjang'][] = [
+                'id_barang' => $barang['id_barang'],
+                'nama_barang' => $barang['nama_barang'],
+                'harga' => $barang['harga'],
+                'gambar' => $barang['gambar'],
+                'jumlah' => 1
+            ];
+        }
+    }
+
+    header("Location: produk.php?added=1");
+    exit;
+}
+
 // Query untuk mengambil semua produk dari database
 $query = "SELECT * FROM barang ORDER BY id_barang DESC";
 $result = mysqli_query($db, $query);
+
+// Hitung total item di keranjang
+$total_keranjang = 0;
+foreach ($_SESSION['keranjang'] as $item) {
+    $total_keranjang += $item['jumlah'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -470,6 +512,18 @@ $result = mysqli_query($db, $query);
             font-weight: 700;
         }
 
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         .sidebar-sticky {
             position: sticky;
             top: 100px;
@@ -544,13 +598,16 @@ $result = mysqli_query($db, $query);
                         <p>APOTEK</p>
                     </div>
                 </a>
-                <nav class="d-none d-lg-block">
+                <nav class="d-none d-lg-flex align-items-center gap-3">
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.php">Beranda</a></li>
                         <li class="nav-item"><a class="nav-link nav-link-custom active" href="produk.php">Produk</a></li>
                         <li class="nav-item"><a class="nav-link nav-link-custom" href="tentangkami.php">Tentang Kami</a></li>
                         <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.php">Kontak</a></li>
                     </ul>
+                    <a href="pemesanan/cek_pesanan.php" class="btn btn-outline-success btn-sm rounded-pill px-3">
+                        <i class="bi bi-search"></i> Cek Pesanan
+                    </a>
                 </nav>
             </div>
         </div>
@@ -628,9 +685,22 @@ $result = mysqli_query($db, $query);
         </div>
     </div>
 
+    <!-- Toast notification -->
+    <?php if (isset($_GET['added'])) { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert"
+            style="position:fixed; top:80px; right:20px; z-index:9999; animation: slideIn 0.5s ease; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <i class="bi bi-check-circle-fill"></i> Produk ditambahkan ke keranjang!
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php } ?>
+
     <!-- Floating Cart -->
     <a href="pemesanan/keranjang.php" class="floating-cart">
-        <span>🛒</span><span>Keranjang</span>
+        <span>🛒</span>
+        <span>Keranjang</span>
+        <?php if ($total_keranjang > 0) { ?>
+            <span class="cart-count"><?php echo $total_keranjang; ?></span>
+        <?php } ?>
     </a>
 
     <!-- Footer -->
@@ -676,12 +746,11 @@ $result = mysqli_query($db, $query);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Fungsi untuk menambah produk ke keranjang
-        function addToCart(namaBarang) {
-            // Implementasi bisa disesuaikan dengan sistem keranjang Anda
-            alert('Produk ' + namaBarang + ' ditambahkan ke keranjang!');
-            // TODO: Implementasi AJAX untuk menambah ke keranjang
-        }
+        // Auto-hide toast after 3 detik
+        setTimeout(() => {
+            const toast = document.querySelector('.alert');
+            if (toast) toast.remove();
+        }, 3000);
 
         // Fungsi untuk wishlist
         document.querySelectorAll('.wishlist-btn').forEach(btn => {

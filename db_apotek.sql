@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 13, 2026 at 05:01 PM
+-- Generation Time: Feb 14, 2026 at 10:24 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -56,6 +56,18 @@ CREATE TABLE `detail_pemesanan` (
   `harga_satuan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `detail_pemesanan`
+--
+
+INSERT INTO `detail_pemesanan` (`id_detail`, `id_pemesanan`, `id_barang`, `jumlah`, `harga_satuan`) VALUES
+(1, 1, 1, 2, '15000'),
+(2, 2, 1, 2, '15000'),
+(3, 3, 1, 1, '15000'),
+(4, 4, 1, 1, '15000'),
+(5, 5, 1, 3, '15000'),
+(6, 6, 1, 1, '15000');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +83,18 @@ CREATE TABLE `pemesanan` (
   `total_harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_user`, `tanggal_pesan`, `metode_pembayaran`, `status`, `total_harga`) VALUES
+(1, 3, '2026-02-14 00:58:24', 'ewallet', 'menunggu', '30000'),
+(2, 4, '2026-02-14 01:06:18', 'ewallet', 'menunggu', '30000'),
+(3, 5, '2026-02-14 09:00:19', 'ewallet', 'menunggu', '15000'),
+(4, 6, '2026-02-14 10:11:57', 'ewallet', 'menunggu', '15000'),
+(5, 7, '2026-02-14 10:14:34', 'cod', 'menunggu', '45000'),
+(6, 8, '2026-02-14 10:20:28', 'cod', 'menunggu', '15000');
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +107,19 @@ CREATE TABLE `user` (
   `umur` int NOT NULL,
   `no_hp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `umur`, `no_hp`) VALUES
+(2, 'dapa', 15, '08123456789'),
+(3, 'dapa', 15, '08123456789'),
+(4, 'fawwaz', 17, '08123456789'),
+(5, 'Maulid', 18, '08123456789'),
+(6, 'Dewa', 16, '080987654321'),
+(7, 'gilang', 17, '089977665544'),
+(8, 'Adlan', 17, '085544332211');
 
 --
 -- Indexes for dumped tables
@@ -129,19 +166,19 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
