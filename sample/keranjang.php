@@ -178,7 +178,7 @@ foreach ($_SESSION['keranjang'] as $item) {
     <header class="header sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
             <h1>🛒 Keranjang Belanja</h1>
-            <a href="../produk.php" class="text-white text-decoration-none">
+            <a href="produk.php" class="text-white text-decoration-none">
                 <i class="bi bi-arrow-left"></i> Kembali Belanja
             </a>
         </div>
@@ -191,7 +191,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                 <i class="bi bi-cart-x"></i>
                 <h3>Keranjang Anda Kosong</h3>
                 <p>Belum ada produk yang ditambahkan ke keranjang</p>
-                <a href="../produk.php" class="btn btn-success mt-3">
+                <a href="produk.php" class="btn btn-success mt-3">
                     <i class="bi bi-shop"></i> Mulai Belanja
                 </a>
             </div>

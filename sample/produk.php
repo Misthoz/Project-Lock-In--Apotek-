@@ -203,7 +203,7 @@ foreach ($_SESSION['keranjang'] as $item) {
     <header class="header sticky-top">
         <div class="container">
             <h1>🏥 Marcydap Apotek</h1>
-            <a href="pemesanan/keranjang.php" class="cart-link">
+            <a href="keranjang.php" class="cart-link">
                 <i class="bi bi-cart3"></i> Keranjang
                 <?php if ($total_keranjang > 0) { ?>
                     <span class="cart-badge"><?php echo $total_keranjang; ?></span>

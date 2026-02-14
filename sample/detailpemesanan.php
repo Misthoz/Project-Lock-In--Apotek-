@@ -1,5 +1,5 @@
 <?php
-include '../../config/db.php';
+include 'config/db.php';
 
 // Cek ada id_pemesanan
 if (!isset($_SESSION['id_pemesanan'])) {
@@ -41,6 +41,7 @@ unset($_SESSION['id_pemesanan']);
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,11 +57,17 @@ unset($_SESSION['id_pemesanan']);
             --light: #D8F3DC;
             --dark: #081C15;
         }
-        body { font-family: 'DM Sans', sans-serif; background-color: #f5f5f5; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 15px 0;
         }
+
         .header h1 {
             font-family: 'Playfair Display', serif;
             color: white;
@@ -69,19 +76,63 @@ unset($_SESSION['id_pemesanan']);
         }
 
         /* Stepper */
-        .stepper { display: flex; justify-content: center; gap: 0; margin: 30px 0; }
-        .step { display: flex; align-items: center; gap: 8px; color: #aaa; font-size: 0.9rem; }
-        .step.done { color: var(--accent); font-weight: 600; }
-        .step.active { color: var(--primary); font-weight: 600; }
-        .step-circle {
-            width: 32px; height: 32px; border-radius: 50%; background: #ddd;
-            color: white; display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.85rem;
+        .stepper {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 30px 0;
         }
-        .step.done .step-circle { background: var(--accent); }
-        .step.active .step-circle { background: var(--primary); }
-        .step-line { width: 40px; height: 2px; background: #ddd; margin: 0 10px; align-self: center; }
-        .step-line.done { background: var(--accent); }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .step.done {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .step.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .step.done .step-circle {
+            background: var(--accent);
+        }
+
+        .step.active .step-circle {
+            background: var(--primary);
+        }
+
+        .step-line {
+            width: 40px;
+            height: 2px;
+            background: #ddd;
+            margin: 0 10px;
+            align-self: center;
+        }
+
+        .step-line.done {
+            background: var(--accent);
+        }
 
         /* Struk */
         .struk {
@@ -90,26 +141,43 @@ unset($_SESSION['id_pemesanan']);
             margin: 0 auto;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
+
         .struk-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             text-align: center;
             padding: 30px 20px;
         }
+
         .struk-header .check-icon {
-            width: 60px; height: 60px; border-radius: 50%;
-            background: var(--accent); color: white; font-size: 1.8rem;
-            display: flex; align-items: center; justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 15px;
         }
+
         .struk-header h3 {
             font-family: 'Playfair Display', serif;
             margin: 0;
         }
-        .struk-header p { margin: 5px 0 0; opacity: 0.8; }
-        .struk-body { padding: 25px; }
+
+        .struk-header p {
+            margin: 5px 0 0;
+            opacity: 0.8;
+        }
+
+        .struk-body {
+            padding: 25px;
+        }
+
         .struk-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -118,6 +186,7 @@ unset($_SESSION['id_pemesanan']);
             padding-bottom: 20px;
             border-bottom: 2px dashed #eee;
         }
+
         .struk-info-item label {
             display: block;
             font-size: 0.8rem;
@@ -126,10 +195,12 @@ unset($_SESSION['id_pemesanan']);
             letter-spacing: 0.5px;
             margin-bottom: 4px;
         }
+
         .struk-info-item span {
             font-weight: 600;
             color: var(--dark);
         }
+
         .struk-item {
             display: flex;
             align-items: center;
@@ -137,15 +208,37 @@ unset($_SESSION['id_pemesanan']);
             padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
         }
+
         .struk-item-img {
-            width: 50px; height: 50px; border-radius: 8px;
-            background-size: cover; background-position: center;
-            background-color: #eee; flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+            flex-shrink: 0;
         }
-        .struk-item-info { flex: 1; }
-        .struk-item-name { font-weight: 600; font-size: 0.9rem; }
-        .struk-item-qty { color: #999; font-size: 0.8rem; }
-        .struk-item-price { font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+        .struk-item-info {
+            flex: 1;
+        }
+
+        .struk-item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .struk-item-qty {
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .struk-item-price {
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
         .struk-total {
             display: flex;
             justify-content: space-between;
@@ -157,17 +250,20 @@ unset($_SESSION['id_pemesanan']);
             font-weight: 700;
             color: var(--primary);
         }
+
         .struk-footer {
             text-align: center;
             padding: 20px;
             background: #fafafa;
             border-top: 1px solid #eee;
         }
+
         .struk-footer p {
             color: #999;
             font-size: 0.85rem;
             margin: 0;
         }
+
         .status-badge {
             display: inline-block;
             padding: 4px 12px;
@@ -177,6 +273,7 @@ unset($_SESSION['id_pemesanan']);
             background: #fff3cd;
             color: #856404;
         }
+
         .btn-home {
             background: var(--accent);
             color: white;
@@ -189,7 +286,12 @@ unset($_SESSION['id_pemesanan']);
             margin-top: 20px;
             transition: background 0.3s;
         }
-        .btn-home:hover { background: var(--secondary); color: white; }
+
+        .btn-home:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
         .btn-print {
             background: white;
             color: var(--primary);
@@ -201,15 +303,33 @@ unset($_SESSION['id_pemesanan']);
             margin-top: 10px;
             transition: all 0.3s;
         }
-        .btn-print:hover { background: var(--primary); color: white; }
+
+        .btn-print:hover {
+            background: var(--primary);
+            color: white;
+        }
 
         @media print {
-            .header, .stepper, .btn-home, .btn-print, .struk-footer .no-print { display: none !important; }
-            .struk { box-shadow: none; }
-            body { background: white; }
+
+            .header,
+            .stepper,
+            .btn-home,
+            .btn-print,
+            .struk-footer .no-print {
+                display: none !important;
+            }
+
+            .struk {
+                box-shadow: none;
+            }
+
+            body {
+                background: white;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header sticky-top">
@@ -282,12 +402,12 @@ unset($_SESSION['id_pemesanan']);
                 <!-- Lokasi Pengambilan -->
                 <div class="mb-3 p-3 rounded" style="background: var(--light);">
                     <small class="text-muted d-block mb-1"><i class="bi bi-geo-alt-fill"></i> Lokasi Pengambilan:</small>
-                    <strong style="color: var(--primary);">Apotek Marcydap Pusat — Jl. Gurami No. 123</strong>
+                    <strong style="color: var(--primary);">Apotek Marcydap — Jl. Gurami No. 123</strong>
                 </div>
 
                 <!-- Daftar Item -->
                 <h6 class="fw-bold mb-3">Item Pesanan</h6>
-                <?php while ($item = mysqli_fetch_assoc($result_detail)) { 
+                <?php while ($item = mysqli_fetch_assoc($result_detail)) {
                     $subtotal = $item['jumlah'] * $item['harga_satuan'];
                 ?>
                     <div class="struk-item">
@@ -315,7 +435,7 @@ unset($_SESSION['id_pemesanan']);
                         <i class="bi bi-printer"></i> Cetak Struk
                     </button>
                     <br>
-                    <a href="../produk.php" class="btn-home">
+                    <a href="produk.php" class="btn-home">
                         <i class="bi bi-house"></i> Kembali ke Beranda
                     </a>
                 </div>
@@ -325,4 +445,5 @@ unset($_SESSION['id_pemesanan']);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

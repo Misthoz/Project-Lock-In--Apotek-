@@ -1,6 +1,5 @@
-// filepath: d:\laragon\www\PHP\Project-Lock-In--Apotek-\main\pemesanan\pembayaran.php
 <?php
-include '../../config/db.php';
+include 'config/db.php';
 
 // Cek data lengkap
 if (empty($_SESSION['keranjang']) || empty($_SESSION['data_pemesan'])) {
@@ -12,44 +11,45 @@ if (empty($_SESSION['keranjang']) || empty($_SESSION['data_pemesan'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bayar'])) {
     $metode = $_POST['metode_pembayaran'];
     $data = $_SESSION['data_pemesan'];
-    
+
     // 1. Insert user
     $nama = mysqli_real_escape_string($db, $data['nama']);
     $umur = (int) $data['umur'];
     $no_hp = mysqli_real_escape_string($db, $data['no_hp']);
-    
+
     $query_user = "INSERT INTO user (nama, umur, no_hp) VALUES ('$nama', $umur, '$no_hp')";
     mysqli_query($db, $query_user);
     $id_user = mysqli_insert_id($db);
-    
+
     // 2. Hitung total harga
     $total_harga = 0;
     foreach ($_SESSION['keranjang'] as $item) {
         $total_harga += $item['harga'] * $item['jumlah'];
     }
-    
+
     // 3. Insert pemesanan
-    $query_pesan = "INSERT INTO pemesanan (id_user, metode_pembayaran, total_harga) 
-                    VALUES ($id_user, '$metode', $total_harga)";
+    $tanggal_pesan = date('Y-m-d H:i:s');
+    $query_pesan = "INSERT INTO pemesanan (id_user, metode_pembayaran, total_harga, tanggal_pesan) 
+                    VALUES ($id_user, '$metode', $total_harga, '$tanggal_pesan')";
     mysqli_query($db, $query_pesan);
     $id_pemesanan = mysqli_insert_id($db);
-    
+
     // 4. Insert detail pemesanan
     foreach ($_SESSION['keranjang'] as $item) {
         $id_barang = (int) $item['id_barang'];
         $jumlah = (int) $item['jumlah'];
         $harga_satuan = (int) $item['harga'];
-        
+
         $query_detail = "INSERT INTO detail_pemesanan (id_pemesanan, id_barang, jumlah, harga_satuan) 
                          VALUES ($id_pemesanan, $id_barang, $jumlah, $harga_satuan)";
         mysqli_query($db, $query_detail);
     }
-    
+
     // 5. Simpan id_pemesanan ke session lalu bersihkan keranjang
     $_SESSION['id_pemesanan'] = $id_pemesanan;
     $_SESSION['keranjang'] = [];
     $_SESSION['data_pemesan'] = [];
-    
+
     header("Location: detailpemesanan.php");
     exit;
 }
@@ -63,6 +63,7 @@ foreach ($_SESSION['keranjang'] as $item) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,11 +79,17 @@ foreach ($_SESSION['keranjang'] as $item) {
             --light: #D8F3DC;
             --dark: #081C15;
         }
-        body { font-family: 'DM Sans', sans-serif; background-color: #f5f5f5; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 15px 0;
         }
+
         .header h1 {
             font-family: 'Playfair Display', serif;
             color: white;
@@ -91,32 +98,77 @@ foreach ($_SESSION['keranjang'] as $item) {
         }
 
         /* Stepper */
-        .stepper { display: flex; justify-content: center; gap: 0; margin: 30px 0; }
-        .step { display: flex; align-items: center; gap: 8px; color: #aaa; font-size: 0.9rem; }
-        .step.active { color: var(--primary); font-weight: 600; }
-        .step.done { color: var(--accent); }
-        .step-circle {
-            width: 32px; height: 32px; border-radius: 50%; background: #ddd;
-            color: white; display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.85rem;
+        .stepper {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 30px 0;
         }
-        .step.active .step-circle { background: var(--primary); }
-        .step.done .step-circle { background: var(--accent); }
-        .step-line { width: 40px; height: 2px; background: #ddd; margin: 0 10px; align-self: center; }
-        .step-line.done { background: var(--accent); }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .step.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .step.done {
+            color: var(--accent);
+        }
+
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .step.active .step-circle {
+            background: var(--primary);
+        }
+
+        .step.done .step-circle {
+            background: var(--accent);
+        }
+
+        .step-line {
+            width: 40px;
+            height: 2px;
+            background: #ddd;
+            margin: 0 10px;
+            align-self: center;
+        }
+
+        .step-line.done {
+            background: var(--accent);
+        }
 
         .payment-card {
             background: white;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             margin-bottom: 20px;
         }
+
         .payment-card h4 {
             font-family: 'Playfair Display', serif;
             color: var(--dark);
             margin-bottom: 20px;
         }
+
         .payment-option {
             border: 2px solid #eee;
             border-radius: 12px;
@@ -125,21 +177,47 @@ foreach ($_SESSION['keranjang'] as $item) {
             transition: all 0.3s;
             margin-bottom: 12px;
         }
-        .payment-option:hover { border-color: var(--accent); background: #fafffe; }
-        .payment-option.selected { border-color: var(--accent); background: var(--light); }
-        .payment-option input[type="radio"] { display: none; }
+
+        .payment-option:hover {
+            border-color: var(--accent);
+            background: #fafffe;
+        }
+
+        .payment-option.selected {
+            border-color: var(--accent);
+            background: var(--light);
+        }
+
+        .payment-option input[type="radio"] {
+            display: none;
+        }
+
         .payment-option .option-content {
             display: flex;
             align-items: center;
             gap: 15px;
         }
+
         .payment-icon {
-            width: 50px; height: 50px; border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
         }
-        .ewallet-icon { background: #e8f5e9; color: #2e7d32; }
-        .cod-icon { background: #fff3e0; color: #e65100; }
+
+        .ewallet-icon {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .cod-icon {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
         .btn-bayar {
             background: var(--primary);
             color: white;
@@ -153,10 +231,18 @@ foreach ($_SESSION['keranjang'] as $item) {
             transition: background 0.3s;
             margin-top: 20px;
         }
-        .btn-bayar:hover { background: var(--dark); }
-        .btn-bayar:disabled { background: #ccc; cursor: not-allowed; }
+
+        .btn-bayar:hover {
+            background: var(--dark);
+        }
+
+        .btn-bayar:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header sticky-top">
@@ -284,4 +370,5 @@ foreach ($_SESSION['keranjang'] as $item) {
         });
     </script>
 </body>
+
 </html>

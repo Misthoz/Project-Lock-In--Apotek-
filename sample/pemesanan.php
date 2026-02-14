@@ -1,5 +1,5 @@
 <?php
-include '../../config/db.php';
+include 'config/db.php';
 
 // Cek keranjang tidak kosong
 if (empty($_SESSION['keranjang'])) {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lanjut_bayar'])) {
         'umur' => (int) $_POST['umur'],
         'no_hp' => trim($_POST['no_hp'])
     ];
-    
+
     header("Location: pembayaran.php");
     exit;
 }
@@ -29,6 +29,7 @@ foreach ($_SESSION['keranjang'] as $item) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,11 +45,17 @@ foreach ($_SESSION['keranjang'] as $item) {
             --light: #D8F3DC;
             --dark: #081C15;
         }
-        body { font-family: 'DM Sans', sans-serif; background-color: #f5f5f5; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 15px 0;
         }
+
         .header h1 {
             font-family: 'Playfair Display', serif;
             color: white;
@@ -63,6 +70,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             gap: 0;
             margin: 30px 0;
         }
+
         .step {
             display: flex;
             align-items: center;
@@ -70,8 +78,16 @@ foreach ($_SESSION['keranjang'] as $item) {
             color: #aaa;
             font-size: 0.9rem;
         }
-        .step.active { color: var(--primary); font-weight: 600; }
-        .step.done { color: var(--accent); }
+
+        .step.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .step.done {
+            color: var(--accent);
+        }
+
         .step-circle {
             width: 32px;
             height: 32px;
@@ -84,8 +100,15 @@ foreach ($_SESSION['keranjang'] as $item) {
             font-weight: 700;
             font-size: 0.85rem;
         }
-        .step.active .step-circle { background: var(--primary); }
-        .step.done .step-circle { background: var(--accent); }
+
+        .step.active .step-circle {
+            background: var(--primary);
+        }
+
+        .step.done .step-circle {
+            background: var(--accent);
+        }
+
         .step-line {
             width: 40px;
             height: 2px;
@@ -93,20 +116,25 @@ foreach ($_SESSION['keranjang'] as $item) {
             margin: 0 10px;
             align-self: center;
         }
-        .step-line.done { background: var(--accent); }
+
+        .step-line.done {
+            background: var(--accent);
+        }
 
         .form-card {
             background: white;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             margin-bottom: 20px;
         }
+
         .form-card h4 {
             font-family: 'Playfair Display', serif;
             color: var(--dark);
             margin-bottom: 20px;
         }
+
         .lokasi-box {
             background: var(--light);
             border: 2px solid var(--accent);
@@ -114,9 +142,22 @@ foreach ($_SESSION['keranjang'] as $item) {
             padding: 20px;
             text-align: center;
         }
-        .lokasi-box i { font-size: 2rem; color: var(--primary); }
-        .lokasi-box h5 { color: var(--primary); margin-top: 10px; }
-        .lokasi-box p { color: #666; margin: 0; }
+
+        .lokasi-box i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .lokasi-box h5 {
+            color: var(--primary);
+            margin-top: 10px;
+        }
+
+        .lokasi-box p {
+            color: #666;
+            margin: 0;
+        }
+
         .btn-next {
             background: var(--accent);
             color: white;
@@ -127,9 +168,14 @@ foreach ($_SESSION['keranjang'] as $item) {
             cursor: pointer;
             transition: background 0.3s;
         }
-        .btn-next:hover { background: var(--secondary); color: white; }
+
+        .btn-next:hover {
+            background: var(--secondary);
+            color: white;
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header sticky-top">
@@ -173,21 +219,21 @@ foreach ($_SESSION['keranjang'] as $item) {
                     <form method="POST" id="formPemesanan">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="nama" name="nama" required 
-                                   value="<?php echo isset($_SESSION['data_pemesan']['nama']) ? htmlspecialchars($_SESSION['data_pemesan']['nama']) : ''; ?>"
-                                   placeholder="Masukkan nama lengkap">
+                            <input type="text" class="form-control" id="nama" name="nama" required
+                                value="<?php echo isset($_SESSION['data_pemesan']['nama']) ? htmlspecialchars($_SESSION['data_pemesan']['nama']) : ''; ?>"
+                                placeholder="Masukkan nama lengkap">
                         </div>
                         <div class="mb-3">
                             <label for="umur" class="form-label">Umur <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" id="umur" name="umur" required min="1" max="120"
-                                   value="<?php echo isset($_SESSION['data_pemesan']['umur']) ? $_SESSION['data_pemesan']['umur'] : ''; ?>"
-                                   placeholder="Masukkan umur">
+                                value="<?php echo isset($_SESSION['data_pemesan']['umur']) ? $_SESSION['data_pemesan']['umur'] : ''; ?>"
+                                placeholder="Masukkan umur">
                         </div>
                         <div class="mb-3">
                             <label for="no_hp" class="form-label">No. HP / WhatsApp <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="no_hp" name="no_hp" required
-                                   value="<?php echo isset($_SESSION['data_pemesan']['no_hp']) ? htmlspecialchars($_SESSION['data_pemesan']['no_hp']) : ''; ?>"
-                                   placeholder="Contoh: 08123456789">
+                                value="<?php echo isset($_SESSION['data_pemesan']['no_hp']) ? htmlspecialchars($_SESSION['data_pemesan']['no_hp']) : ''; ?>"
+                                placeholder="Contoh: 08123456789">
                         </div>
                         <button type="submit" name="lanjut_bayar" class="btn-next w-100">
                             Lanjut ke Pembayaran <i class="bi bi-arrow-right"></i>
@@ -231,4 +277,5 @@ foreach ($_SESSION['keranjang'] as $item) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
