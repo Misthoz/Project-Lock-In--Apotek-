@@ -39,19 +39,26 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
 
     <button class="wishlist-btn">♡</button>
 
-    <div class="product-image" style="<?php if (!empty($gambar_src)) echo 'background-image: url(' . $gambar_src . '); background-size: cover; background-position: center;'; ?>">
-        <?php if (empty($gambar_src)) { ?>
-            <div class="quick-view">Lihat Detail</div>
-        <?php } ?>
-    </div>
+    <a href="detail_produk.php?id=<?php echo $product['id_barang']; ?>" class="product-image-link">
+        <div class="product-image" style="<?php if (!empty($gambar_src)) echo 'background-image: url(' . $gambar_src . '); background-size: cover; background-position: center;'; ?>">
+            <?php if (empty($gambar_src)) { ?>
+                <div class="quick-view">Lihat Detail</div>
+            <?php } else { ?>
+                <div class="quick-view-overlay">
+                    <span class="quick-view-text">Lihat Detail</span>
+                </div>
+            <?php } ?>
+        </div>
+    </a>
 
     <div class="product-content">
-        <div class="product-category">Produk Kesehatan</div>
-        <h3 class="product-title"><?php echo htmlspecialchars($product['nama_barang']); ?></h3>
+        <div class="product-category"><?php echo htmlspecialchars($product['jenis_barang']); ?></div>
+        <a href="detail_produk.php?id=<?php echo $product['id_barang']; ?>" class="product-title-link">
+            <h3 class="product-title"><?php echo htmlspecialchars($product['nama_barang']); ?></h3>
+        </a>
         <div class="product-rating">
-            <span class="stars">⭐⭐⭐⭐⭐</span>
-            <span class="rating-count">(5.0)</span>
         </div>
+        
         <div class="product-meta">
             <span><?php echo substr(htmlspecialchars($product['deskripsi']), 0, 50); ?>...</span>
         </div>

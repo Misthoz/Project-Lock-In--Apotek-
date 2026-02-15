@@ -1,0 +1,165 @@
+:root {
+    --primary-green: #1a472a;
+    --secondary-green: #2d6a4f;
+    --accent-green: #52b788;
+    --light-green: #95d5b2;
+    --bg-cream: #faf8f3;
+    --text-dark: #1a1a1a;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--bg-cream); color: var(--text-dark); }
+
+.header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+.logo-icon {
+    width: 45px; height: 45px;
+    background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    position: relative;
+}
+.logo-icon::before, .logo-icon::after { content: ''; position: absolute; background: white; }
+.logo-icon::before { width: 5px; height: 20px; }
+.logo-icon::after { width: 20px; height: 5px; }
+.logo-text h1 { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 24px; margin: 0; }
+.logo-text p { color: var(--accent-green); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+.nav-link-custom { color: var(--text-dark) !important; font-weight: 500; transition: color 0.3s ease; }
+.nav-link-custom:hover, .nav-link-custom.active { color: var(--secondary-green) !important; }
+
+.hero-contact {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+    padding: 80px 0; text-align: center; color: white; position: relative; overflow: hidden;
+}
+.hero-contact::before {
+    content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 200%;
+    background: radial-gradient(circle, rgba(82, 183, 136, 0.1) 0%, transparent 60%);
+}
+.hero-contact h1 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 15px; }
+.hero-contact p { font-size: 18px; opacity: 0.9; }
+
+.section-title { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 36px; margin-bottom: 15px; }
+.section-subtitle { color: #666; font-size: 16px; }
+
+.contact-method-card {
+    background: white; border-radius: 20px; padding: 35px; text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s ease; height: 100%;
+}
+.contact-method-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(26, 71, 42, 0.15); }
+.contact-icon {
+    width: 70px; height: 70px; margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+}
+.contact-method-card h4 { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 20px; margin-bottom: 10px; }
+.contact-method-card p { color: #666; font-size: 14px; margin-bottom: 5px; }
+.contact-method-card .contact-detail { color: var(--secondary-green); font-weight: 600; font-size: 15px; }
+
+.contact-form-section { padding: 80px 0; }
+.contact-form-wrapper {
+    background: white; border-radius: 20px; padding: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.form-label-custom { font-weight: 600; color: var(--primary-green); font-size: 14px; margin-bottom: 8px; }
+.form-input {
+    width: 100%; padding: 14px 18px; border: 2px solid #e8f5e9;
+    border-radius: 12px; font-size: 15px; font-family: 'DM Sans', sans-serif;
+    transition: all 0.3s ease;
+}
+.form-input:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.1); }
+textarea.form-input { resize: vertical; min-height: 120px; }
+.submit-btn {
+    width: 100%; padding: 16px; background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+    color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+    cursor: pointer; transition: all 0.3s ease;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(45, 106, 79, 0.3); }
+
+.office-card {
+    background: white; border-radius: 16px; padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); height: 100%;
+}
+.office-card h4 { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 18px; margin-bottom: 12px; }
+.office-card p { color: #555; font-size: 14px; margin-bottom: 5px; }
+
+.faq-section { padding: 80px 0; background: white; }
+.faq-item {
+    background: var(--bg-cream); border-radius: 16px; margin-bottom: 15px;
+    overflow: hidden; transition: all 0.3s ease;
+}
+.faq-question {
+    padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; font-weight: 600; color: var(--primary-green); font-size: 16px;
+}
+.faq-question .toggle-icon { font-size: 20px; transition: transform 0.3s ease; }
+.faq-answer { padding: 0 25px 20px; color: #555; line-height: 1.7; font-size: 14px; display: none; }
+.faq-item.active .faq-answer { display: block; }
+.faq-item.active .toggle-icon { transform: rotate(45deg); }
+
+.map-placeholder {
+    width: 100%; height: 350px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-radius: 20px; display: flex; align-items: center; justify-content: center;
+    font-size: 60px; margin-top: 40px;
+}
+
+.customer-service {
+    background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
+    border-radius: 20px; padding: 40px; color: white; text-align: center;
+}
+.customer-service h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeInUp 0.8s ease forwards; }
+
+.footer {
+    background: #0a1f1a;
+    color: white;
+    padding: 80px 0 40px;
+}
+
+.footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #b7e4c7;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}

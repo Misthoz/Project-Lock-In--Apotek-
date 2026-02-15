@@ -10,235 +10,18 @@ include '../config/db.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Fraunces:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --forest: #1a472a;
-            --moss: #2d6a4f;
-            --jade: #52b788;
-            --mint: #95d5b2;
-            --sage: #b7e4c7;
-            --pearl: #f8f9fa;
-            --ink: #0a1f1a;
-        }
-
-        body {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            background: var(--pearl);
-            color: var(--ink);
-            overflow-x: hidden;
-        }
-
-        .navbar-custom {
-            padding: 25px 0;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .navbar-custom.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(20px);
-            padding: 18px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
-        .logo-symbol {
-            width: 50px; height: 50px;
-            background: linear-gradient(135deg, var(--moss), var(--jade));
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px;
-            transform: rotate(-5deg);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .navbar-brand:hover .logo-symbol { transform: rotate(5deg) scale(1.1); }
-        .logo-text {
-            font-family: 'Fraunces', serif;
-            font-size: 28px; font-weight: 900;
-            color: var(--forest); letter-spacing: -1px;
-        }
-        .navbar-custom .nav-link {
-            color: var(--ink) !important;
-            font-weight: 600; font-size: 15px;
-            position: relative; padding: 8px 20px !important;
-        }
-        .navbar-custom .nav-link::after {
-            content: ''; position: absolute; bottom: 0; left: 20px;
-            width: 0; height: 3px; background: var(--jade); border-radius: 2px;
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .navbar-custom .nav-link:hover::after { width: calc(100% - 40px); }
-
-        .btn-ghost {
-            padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: 14px;
-            background: transparent; color: var(--moss); border: 2px solid var(--moss);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-ghost:hover { background: var(--moss); color: white; transform: translateY(-2px); }
-        .btn-primary-custom {
-            padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: 14px;
-            background: linear-gradient(135deg, var(--moss), var(--jade));
-            color: white; border: none;
-            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.3);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(45, 106, 79, 0.4);
-            color: white;
-        }
-
-        .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            padding-top: 120px; padding-bottom: 80px;
-            position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(82, 183, 136, 0.15), transparent);
-            border-radius: 50%; top: -400px; right: -200px;
-            animation: float 20s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-50px, 50px) scale(1.1); }
-            66% { transform: translate(30px, -30px) scale(0.95); }
-        }
-        .hero-text { animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes slideInRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: translateX(0); } }
-
-        .hero-badge {
-            display: inline-block; padding: 10px 24px;
-            background: linear-gradient(135deg, rgba(183, 228, 199, 0.5), rgba(149, 213, 178, 0.5));
-            border-radius: 50px; font-size: 14px; font-weight: 700;
-            color: var(--forest); margin-bottom: 30px;
-        }
-        .hero h1 {
-            font-family: 'Fraunces', serif; font-size: 82px; font-weight: 900;
-            line-height: 0.95; color: var(--forest); margin-bottom: 30px; letter-spacing: -2px;
-        }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--jade), var(--mint));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; display: inline-block;
-        }
-        .hero-description {
-            font-size: 20px; line-height: 1.7; color: #556652;
-            margin-bottom: 40px; max-width: 550px;
-        }
-        .stat { border-left: 3px solid var(--jade); padding-left: 20px; }
-        .stat-number {
-            font-family: 'Fraunces', serif; font-size: 42px; font-weight: 900;
-            color: var(--forest); line-height: 1; margin-bottom: 8px;
-        }
-        .stat-label { font-size: 14px; color: #667; font-weight: 600; }
-
-        .hero-visual { animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
-        .hero-card {
-            background: white; border-radius: 30px; padding: 50px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.12);
-            position: relative; overflow: hidden;
-        }
-        .hero-card::before {
-            content: ''; position: absolute; top: 0; right: 0;
-            width: 200px; height: 200px;
-            background: linear-gradient(135deg, var(--sage), var(--mint));
-            border-radius: 0 30px 0 100%; opacity: 0.3;
-        }
-        .card-tag {
-            display: inline-block; padding: 8px 18px;
-            background: linear-gradient(135deg, var(--jade), var(--mint));
-            color: white; border-radius: 20px; font-size: 12px; font-weight: 700;
-            margin-bottom: 25px;
-        }
-        .card-title {
-            font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700;
-            color: var(--forest); margin-bottom: 20px;
-        }
-        .feature { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; }
-        .feature-icon {
-            width: 45px; height: 45px;
-            background: linear-gradient(135deg, var(--sage), var(--mint));
-            border-radius: 12px; display: flex; align-items: center;
-            justify-content: center; font-size: 20px; flex-shrink: 0;
-        }
-        .feature-text { font-size: 15px; font-weight: 600; color: var(--ink); }
-
-        .services { padding: 120px 0; background: linear-gradient(180deg, var(--pearl) 0%, white 100%); }
-        .section-badge {
-            display: inline-block; padding: 10px 24px;
-            background: linear-gradient(135deg, rgba(183, 228, 199, 0.5), rgba(149, 213, 178, 0.5));
-            border-radius: 50px; font-size: 14px; font-weight: 700;
-            color: var(--forest); margin-bottom: 20px;
-        }
-        .section-title {
-            font-family: 'Fraunces', serif; font-size: 58px; font-weight: 900;
-            color: var(--forest); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px;
-        }
-        .section-description { font-size: 18px; color: #556652; line-height: 1.7; }
-
-        .service-card {
-            background: white; border-radius: 24px; padding: 45px;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 2px solid transparent; cursor: pointer; height: 100%;
-        }
-        .service-card:hover {
-            transform: translateY(-10px); border-color: var(--jade);
-            box-shadow: 0 30px 60px rgba(82, 183, 136, 0.2);
-        }
-        .service-card h3 {
-            font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700;
-            color: var(--forest); margin-bottom: 15px;
-        }
-        .service-card p { font-size: 15px; line-height: 1.7; color: #667; margin-bottom: 25px; }
-        .service-link {
-            display: inline-flex; align-items: center; gap: 8px;
-            color: var(--jade); font-weight: 700; font-size: 14px; text-decoration: none;
-            transition: gap 0.3s;
-        }
-        .service-card:hover .service-link { gap: 12px; }
-
-        .testimonials { padding: 120px 0; background: white; }
-        .testimonial-card {
-            background: var(--pearl); border-radius: 24px; padding: 40px;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); height: 100%;
-        }
-        .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
-        .testimonial-avatar {
-            width: 60px; height: 60px;
-            background: linear-gradient(135deg, var(--jade), var(--mint));
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 28px;
-        }
-        .testimonial-info h4, .testimonial-info { font-size: 18px; font-weight: 700; color: var(--forest); margin-bottom: 5px; }
-        .testimonial-stars { color: #ffa500; font-size: 16px; }
-        .testimonial-text { font-size: 15px; line-height: 1.8; color: #556652; font-style: italic; }
-
-        .footer {
-            background: var(--ink); color: white; padding: 80px 0 40px;
-        }
-        .footer-brand h3 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 900; margin-bottom: 20px; }
-        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 30px; }
-        .footer-section h4 { font-size: 16px; font-weight: 700; margin-bottom: 25px; color: var(--sage); }
-        .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 15px; }
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom {
-            padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center; color: rgba(255,255,255,0.5); font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 52px; }
-            .section-title { font-size: 42px; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.php">
-                <div class="logo-symbol"></div>
-                <span class="logo-text">MARCYDAP</span>
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <h1>MARCYDAP</h1>
+                    <p>APOTEK</p>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -278,7 +61,7 @@ include '../config/db.php';
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Layanan -->
     <section class="services">
         <div class="container">
             <div class="text-center mb-5">
