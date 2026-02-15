@@ -224,7 +224,7 @@ foreach ($_SESSION['keranjang'] as $item) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Payment option selection
+        // Metode Pembayaran
         document.querySelectorAll('.payment-option').forEach(option => {
             option.addEventListener('click', function() {
                 document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));

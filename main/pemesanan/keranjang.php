@@ -104,7 +104,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                         </form>
                     </div>
 
-                    <!-- Cart Items -->
+                    <!-- Item Keranjang -->
                     <?php foreach ($_SESSION['keranjang'] as $index => $item) {
                         $subtotal = $item['harga'] * $item['jumlah'];
                     ?>

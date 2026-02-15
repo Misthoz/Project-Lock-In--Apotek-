@@ -37,12 +37,12 @@
         </div>
     </section>  
 
-    <!-- Story Section -->
+    <!-- Latar Belakang -->
     <section class="story-section">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <div class="story-image"></div>
+                    
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Cerita Kami</h2>
@@ -55,7 +55,7 @@
         </div>
     </section>
 
-    <!-- Mission & Vision -->
+    <!-- Misi dan Visi -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
@@ -136,7 +136,7 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- kontak -->
     <section class="cta-section">
         <div class="container">
             <h2>Ingin Mengenal Kami Lebih Dekat?</h2>

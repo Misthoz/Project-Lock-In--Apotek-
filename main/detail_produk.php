@@ -106,7 +106,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
     </header>
 
     <!-- Breadcrumb -->
-    <div class="container mt-4">
+    <!-- <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
@@ -120,9 +120,9 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
                 <span>Kembali</span>
             </a>
         </div>
-    </div>
+    </div> -->
 
-    <!-- Product Detail Section -->
+    <!-- Produk Detail Section -->
     <div class="container my-5">
         <div class="row g-4">
             <!-- gambar produk -->
@@ -230,7 +230,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
         <?php } ?>
     </div>
 
-    <!-- Toast notification -->
+    <!-- Notifikasi penambahan barang -->
     <?php if (isset($_GET['added'])) { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert"
             style="position:fixed; top:80px; right:20px; z-index:9999; animation: slideIn 0.5s ease; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
@@ -239,7 +239,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
         </div>
     <?php } ?>
 
-    <!-- Floating Cart -->
+    <!-- keranjang -->
     <a href="pemesanan/keranjang.php" class="floating-cart">
         <span>🛒</span>
         <span>Keranjang</span>
@@ -291,7 +291,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Quantity controls
+        // Kontrol jumlah produk pada form detail produk
         function increaseQty() {
             let qty = document.getElementById('quantity');
             if (parseInt(qty.value) < 99) {
@@ -306,7 +306,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
             }
         }
 
-        // Auto-hide toast after 3 seconds
+        // Auto-hide notifikasi setelah 3 detik
         setTimeout(() => {
             const toast = document.querySelector('.alert');
             if (toast) toast.remove();

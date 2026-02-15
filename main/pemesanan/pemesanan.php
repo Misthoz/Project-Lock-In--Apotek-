@@ -165,7 +165,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                         </div>
                         <div class="text-center text-muted mt-3" style="font-size:13px;">🔒 Transaksi aman & terenkripsi</div>
                         <div class="benefits-list">
-                            <h3>✨ Keuntungan Berbelanja</h3>
+                            <h3> Keuntungan Berbelanja</h3>
                             <div class="benefit-item">✓ Produk 100% original</div>
                             <div class="benefit-item">✓ Gratis konsultasi apoteker</div>
                             <div class="benefit-item">✓ Poin reward setiap transaksi</div>

@@ -128,10 +128,10 @@ foreach ($_SESSION['keranjang'] as $item) {
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Konten utamat -->
     <div class="container my-5">
         <div class="row g-4">
-            <!-- Sidebar Filters -->
+            <!-- Kategori FIlter -->
             <div class="col-lg-3">
                 <div class="sidebar-sticky">
                     <div class="filter-section">
@@ -180,13 +180,13 @@ foreach ($_SESSION['keranjang'] as $item) {
                 </div>
             </div>
 
-            <!-- Products Area -->
+            <!-- Produk Area -->
             <div class="col-lg-9">
                 <div class="mb-4">
                     <?php
                     $total_produk = mysqli_num_rows($result);
                     
-                    // Build filter indicator text
+                    // Filter indikator teks
                     $filter_text = '';
                     if (!empty($jenis_filter)) {
                         $jenis_labels = [
@@ -256,7 +256,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                     ?>
                 </div>
 
-                <!-- Pagination -->
+                <!-- Pindah Halaman-->
                 <div class="d-flex justify-content-center gap-2 mt-5">
                     <button class="page-btn">←</button>
                     <button class="page-btn active">1</button>
@@ -267,7 +267,7 @@ foreach ($_SESSION['keranjang'] as $item) {
         </div>
     </div>
 
-    <!-- Toast notification -->
+    <!-- Notifikasi -->
     <?php if (isset($_GET['added'])) { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert"
             style="position:fixed; top:80px; right:20px; z-index:9999; animation: slideIn 0.5s ease; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
@@ -276,7 +276,7 @@ foreach ($_SESSION['keranjang'] as $item) {
         </div>
     <?php } ?>
 
-    <!-- Floating Cart -->
+    <!-- Keranjang -->
     <a href="pemesanan/keranjang.php" class="floating-cart">
         <span>🛒</span>
         <span>Keranjang</span>

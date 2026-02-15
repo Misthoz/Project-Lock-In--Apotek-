@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Contact Methods -->
+    <!-- Metode kontak -->
     <section class="py-5">
         <div class="container" style="margin-top: -60px; position: relative; z-index: 2;">
             <div class="row g-4">
@@ -67,7 +67,7 @@
         </div>
     </section>
 
-    <!-- Contact Form & Info -->
+    <!-- kontak Form dan Info -->
     <section class="contact-form-section">
         <div class="container">
             <div class="row g-5">

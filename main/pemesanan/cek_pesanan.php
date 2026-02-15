@@ -5,8 +5,35 @@ $daftar_pesanan = [];
 $pesanan_detail = null;
 $items = [];
 $error = '';
+$success = '';
 $no_hp_input = '';
 $mode = 'search'; // search | list | detail
+
+// Handler Pembatalan Pesanan
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_pesanan'])) {
+    $id_pemesanan = (int) $_POST['id_pemesanan'];
+    $hp_param = mysqli_real_escape_string($db, trim($_POST['no_hp']));
+    
+    // Verifikasi pesanan milik user ini dan statusnya masih menunggu
+    $query_check = "SELECT p.*, u.no_hp FROM pemesanan p 
+                    JOIN user u ON p.id_user = u.id_user 
+                    WHERE p.id_pemesanan = $id_pemesanan 
+                    AND u.no_hp = '$hp_param' 
+                    AND (p.status IS NULL OR p.status = 'menunggu')";
+    $result_check = mysqli_query($db, $query_check);
+    
+    if (mysqli_num_rows($result_check) > 0) {
+        // Update status menjadi batal
+        $query_cancel = "UPDATE pemesanan SET status = 'batal' WHERE id_pemesanan = $id_pemesanan";
+        if (mysqli_query($db, $query_cancel)) {
+            $success = 'Pesanan berhasil dibatalkan.';
+        } else {
+            $error = 'Gagal membatalkan pesanan.';
+        }
+    } else {
+        $error = 'Pesanan tidak dapat dibatalkan.';
+    }
+}
 
 // Mode 1: Cari berdasarkan No HP
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['no_hp'])) {
@@ -95,7 +122,7 @@ function getStatusInfo($status)
     <!-- Header -->
     <header class="header sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1>🔍 Cek Pesanan</h1>
+            <h1>Cek Pesanan</h1>
             <a href="../produk.php" class="btn-back-link"><i class="bi bi-arrow-left"></i> Kembali</a>
         </div>
     </header>
@@ -114,6 +141,11 @@ function getStatusInfo($status)
                 <?php if ($error) { ?>
                     <div class="alert-error">
                         <i class="bi bi-exclamation-circle"></i> <?php echo $error; ?>
+                    </div>
+                <?php } ?>
+                <?php if ($success) { ?>
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle"></i> <?php echo $success; ?>
                     </div>
                 <?php } ?>
 
@@ -247,11 +279,41 @@ function getStatusInfo($status)
                 <div class="struk-footer">
                     <p>Silakan ambil pesanan Anda di lokasi apotek.</p>
                     <p>Tunjukkan struk ini saat pengambilan.</p>
+                    
+                    <?php if ($success) { ?>
+                        <div class="alert alert-success mb-3">
+                            <i class="bi bi-check-circle"></i> <?php echo $success; ?>
+                        </div>
+                    <?php } ?>
+                    <?php if ($error) { ?>
+                        <div class="alert alert-danger mb-3">
+                            <i class="bi bi-exclamation-circle"></i> <?php echo $error; ?>
+                        </div>
+                    <?php } ?>
+                    
                     <div class="no-print">
                         <button class="btn-print" onclick="window.print()">
                             <i class="bi bi-printer"></i> Cetak Struk
                         </button>
                         <br>
+                        
+                        <?php 
+                        // Tombol batal hanya muncul jika status masih menunggu
+                        $status_pesanan = $pesanan_detail['status'] ?? 'menunggu';
+                        if ($status_pesanan === 'menunggu' || $status_pesanan === NULL) { 
+                        ?>
+                        <form method="POST" action="cek_pesanan.php?id=<?php echo $pesanan_detail['id_pemesanan']; ?>&hp=<?php echo urlencode($no_hp_input); ?>" 
+                              style="display:inline;" 
+                              onsubmit="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini?');">
+                            <input type="hidden" name="id_pemesanan" value="<?php echo $pesanan_detail['id_pemesanan']; ?>">
+                            <input type="hidden" name="no_hp" value="<?php echo htmlspecialchars($no_hp_input); ?>">
+                            <button type="submit" name="cancel_pesanan" class="btn-cancel" style="background: #dc3545; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 500; margin-top: 10px;">
+                                <i class="bi bi-x-circle"></i> Batalkan Pesanan
+                            </button>
+                        </form>
+                        <br>
+                        <?php } ?>
+                        
                         <!-- Kembali ke daftar pesanan -->
                         <form method="POST" action="cek_pesanan.php" style="display:inline;">
                             <input type="hidden" name="no_hp" value="<?php echo htmlspecialchars($no_hp_input); ?>">

@@ -1,4 +1,7 @@
 <?php
+// Set timezone ke Indonesia (WITA)
+date_default_timezone_set('Asia/Makassar');
+
 $db = mysqli_connect("localhost", "root", "", "db_apotek");
 
 if (!$db) {
