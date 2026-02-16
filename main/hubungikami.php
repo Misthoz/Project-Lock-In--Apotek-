@@ -116,7 +116,7 @@
                         <div class="office-card">
                             <h4>Kantor Pusat</h4>
                             <p>Jl. Kesehatan No. 123</p>
-                            <p>Jakarta Selatan, DKI Jakarta 12345</p>
+                            <p>Kalimantan Timur, Samarinda</p>
                             <p>Indonesia</p>
                         </div>
                         <div class="office-card">

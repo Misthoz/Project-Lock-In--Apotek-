@@ -47,7 +47,7 @@
                 <div class="col-lg-6">
                     <h2 class="section-title">Cerita Kami</h2>
                     <div class="story-text">
-                        <p>Marcydap Apotek berdiri sejak tahun 2010 dengan satu tujuan sederhana: menyediakan obat-obatan berkualitas dengan harga yang terjangkau untuk semua kalangan masyarakat.</p>
+                        <p>Marcydap Apotek berdiri sejak tahun 2026 dengan satu tujuan sederhana: menyediakan obat-obatan berkualitas dengan harga yang terjangkau untuk semua kalangan masyarakat.</p>
                         <p>Berawal dari sebuah apotek kecil di sudut kota, kami terus berkembang menjadi jaringan apotek modern yang mengutamakan kualitas pelayanan dan keamanan produk. Setiap langkah kami didasari oleh komitmen untuk memberikan yang terbaik bagi kesehatan masyarakat Indonesia.</p>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                         <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Pertama</div><div class="timeline-desc">Merencanakan design dengan mengambil refrensi dari web lain, dan melakukan design di figma</div></div>
                         <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Kedua</div><div class="timeline-desc">Saat selesai mendesign di figma, maka mulai implementasi desain ke dalam kode.</div></div>
                         <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Ketiga</div><div class="timeline-desc">Mulai menambahkan back-end seperti fungsi pemesanan</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Keempat</div><div class="timeline-desc">Melakukan Finishing dan beberapa sentuhan akhir dan melakukan presentasi</div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Keempat</div><div class="timeline-desc">Melakukan Finishing dan beberapa sentuhan akhir</div></div>
                        
                     </div>
                 </div>

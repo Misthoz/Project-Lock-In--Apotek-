@@ -322,7 +322,7 @@ function getStatusInfo($status)
                             </button>
                         </form>
                         <br>
-                        <a href="produk.php" class="btn-home">
+                        <a href="../produk.php" class="btn-home">
                             <i class="bi bi-house"></i> Kembali ke Beranda
                         </a>
                     </div>

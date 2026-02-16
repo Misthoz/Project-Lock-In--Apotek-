@@ -54,7 +54,7 @@ include '../config/db.php';
                         <span class="card-tag">Mengapa Marcydap?</span>
                         <h3 class="card-title">Solusi Kesehatan Lengkap</h3>
                         <div class="feature"><div class="feature-icon">✓</div><div class="feature-text">Produk 100% Original & Terjamin</div></div>
-                        <div class="feature"><div class="feature-icon">✓</div><div class="feature-text">Harga Terjangkau & Promo Menarik</div></div>
+                        <div class="feature"><div class="feature-icon">✓</div><div class="feature-text">Harga Terjangkau</div></div>
                     </div>
                 </div>
             </div>
