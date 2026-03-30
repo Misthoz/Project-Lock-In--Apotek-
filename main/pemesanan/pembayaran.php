@@ -140,7 +140,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                                     <i class="bi bi-cash-stack"></i>
                                 </div>
                                 <div>
-                                    <strong style="color: var(--primary-green);">Bayar di Tempat (COD)</strong>
+                                    <strong style="color: var(--primary-green);">Cash In Place (CIP)</strong>
                                     <p class="text-muted mb-0" style="font-size: 0.85rem;">Bayar saat mengambil pesanan di apotek</p>
                                 </div>
                             </div>

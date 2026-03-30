@@ -3,6 +3,7 @@ include '../config/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@ include '../config/db.php';
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Fraunces:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
@@ -53,8 +55,14 @@ include '../config/db.php';
                     <div class="hero-card">
                         <span class="card-tag">Mengapa Marcydap?</span>
                         <h3 class="card-title">Solusi Kesehatan Lengkap</h3>
-                        <div class="feature"><div class="feature-icon">✓</div><div class="feature-text">Produk 100% Original & Terjamin</div></div>
-                        <div class="feature"><div class="feature-icon">✓</div><div class="feature-text">Harga Terjangkau & Promo Menarik</div></div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Produk 100% Original & Terjamin</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Harga Terjangkau</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,7 +78,12 @@ include '../config/db.php';
                 <p class="section-description mx-auto" style="max-width:700px;">Dari konsultasi hingga pengiriman, kami hadir untuk memudahkan perjalanan kesehatan Anda</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4"><div class="service-card"><h3>Belanja Online</h3><p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.php" class="service-link">Mulai Belanja →</a></div></div>
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Belanja Online</h3>
+                        <p>Akses ribuan produk kesehatan berkualitas dengan harga terbaik. Cari, pilih, dan pesan dengan mudah dari rumah.</p><a href="produk.php" class="service-link">Mulai Belanja →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -79,11 +92,33 @@ include '../config/db.php';
     <footer class="footer">
         <div class="container">
             <div class="row g-5 mb-5">
-                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
-                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+                <div class="col-lg-5">
+                    <div class="footer-brand">
+                        <h3>MARCYDAP</h3>
+                        <p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h4>Perusahaan</h4>
+                        <ul class="footer-links">
+                            <li><a href="tentangkami.php">Tentang Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h4>Bantuan</h4>
+                        <ul class="footer-links">
+                            <li><a href="hubungikami.php">Hubungi Kami</a></li>
+                            <li><a href="#">Cara Pemesanan</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p>
+            </div>
         </div>
     </footer>
 
@@ -96,4 +131,5 @@ include '../config/db.php';
         });
     </script>
 </body>
+
 </html>

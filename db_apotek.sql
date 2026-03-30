@@ -89,7 +89,7 @@ CREATE TABLE `pemesanan` (
   `id_user` int NOT NULL,
   `tanggal_pesan` datetime NOT NULL,
   `metode_pembayaran` enum('ewallet','cod') NOT NULL,
-  `status` enum('menunggu','diproses','siap_diambil','selesai','dibatalkan') NOT NULL,
+  `status` enum('menunggu','dibatalkan','selesai') NOT NULL DEFAULT 'menunggu',
   `total_harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
