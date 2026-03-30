@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/hubungikami.css">
 </head>
+
 <body>
-            <header class="header sticky-top">
+    <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
                 <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
-                    <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
+                    <div class="logo-text">
+                        <h1>MARCYDAP</h1>
+                        <p>APOTEK</p>
+                    </div>
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul class="nav">
@@ -41,7 +46,7 @@
     <section class="py-5">
         <div class="container" style="margin-top: -60px; position: relative; z-index: 2;">
             <div class="row g-4">
-                
+
                 <div class="col-lg-3 col-md-6">
                     <div class="contact-method-card">
                         <h4>Email</h4>
@@ -154,13 +159,6 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <span>Apakah bisa konsultasi dengan apoteker?</span>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="faq-answer">Ya, kami menyediakan layanan konsultasi gratis dengan apoteker profesional melalui live chat atau WhatsApp pada jam operasional.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
                             <span>Metode pembayaran apa saja yang tersedia?</span>
                             <span class="toggle-icon">+</span>
                         </div>
@@ -175,10 +173,33 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-5 mb-5">
-                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
-                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+                <div class="col-lg-5">
+                    <div class="footer-brand">
+                        <h3>MARCYDAP</h3>
+                        <p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h4>Perusahaan</h4>
+                        <ul class="footer-links">
+                            <li><a href="tentangkami.php">Tentang Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h4>Bantuan</h4>
+                        <ul class="footer-links">
+                            <li><a href="hubungikami.php">Hubungi Kami</a></li>
+                            <li><a href="#">Cara Pemesanan</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Marcydap. All rights reserved. Made with 💚 in Indonesia</p>
+            </div>
         </div>
     </footer>
 
@@ -192,4 +213,5 @@
         }
     </script>
 </body>
+
 </html>

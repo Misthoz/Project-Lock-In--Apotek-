@@ -37,8 +37,6 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
         </div>
     <?php } ?>
 
-    <button class="wishlist-btn">♡</button>
-
     <a href="detail_produk.php?id=<?php echo $product['id_barang']; ?>" class="product-image-link">
         <div class="product-image" style="<?php if (!empty($gambar_src)) echo 'background-image: url(' . $gambar_src . '); background-size: cover; background-position: center;'; ?>">
             <?php if (empty($gambar_src)) { ?>
@@ -58,7 +56,7 @@ $badge_class = isset($badge_class) ? $badge_class : 'badge-new';
         </a>
         <div class="product-rating">
         </div>
-        
+
         <div class="product-meta">
             <span><?php echo substr(htmlspecialchars($product['deskripsi']), 0, 50); ?>...</span>
         </div>

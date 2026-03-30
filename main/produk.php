@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     }
     unset($item);
 
-    // Jika belum ada, tambahkan
+    // Jika belum ada, tambahkan barang baru ke keranjang
     if (!$found) {
         $query = "SELECT * FROM barang WHERE id_barang = $id_barang";
         $result_item = mysqli_query($db, $query);
@@ -88,28 +88,28 @@ foreach ($_SESSION['keranjang'] as $item) {
 
 <body>
 
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center py-3">
-                <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
-                    <div class="logo-icon"></div>
-                    <div class="logo-text">
-                        <h1>MARCYDAP</h1>
-                        <p>APOTEK</p>
-                    </div>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <h1>MARCYDAP</h1>
+                    <p>APOTEK</p>
+                </div>
+            </a>
+            <nav class="d-none d-lg-flex align-items-center gap-3">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.php">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom active" href="produk.php">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="tentangkami.php">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.php">Kontak</a></li>
+                </ul>
+                <a href="pemesanan/cek_pesanan.php" class="btn btn-outline-success btn-sm rounded-pill px-3">
+                    <i class="bi bi-search"></i> Cek Pesanan
                 </a>
-                <nav class="d-none d-lg-flex align-items-center gap-3">
-                    <ul class="nav">
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="dashboard.php">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom active" href="produk.php">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="tentangkami.php">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link-custom" href="hubungikami.php">Kontak</a></li>
-                    </ul>
-                    <a href="pemesanan/cek_pesanan.php" class="btn btn-outline-success btn-sm rounded-pill px-3">
-                        <i class="bi bi-search"></i> Cek Pesanan
-                    </a>
-                </nav>
-            </div>
+            </nav>
         </div>
+    </div>
     </header>
 
     <!-- Search Bar -->
@@ -137,45 +137,45 @@ foreach ($_SESSION['keranjang'] as $item) {
                     <div class="filter-section">
                         <h3>Jenis Barang</h3>
                         <div class="filter-option">
-                            <a href="produk.php<?php echo !empty($search_query) ? '?search='.urlencode($search_query) : ''; ?>" 
-                               class="filter-link <?php echo empty($jenis_filter) ? 'active' : ''; ?>">
+                            <a href="produk.php<?php echo !empty($search_query) ? '?search=' . urlencode($search_query) : ''; ?>"
+                                class="filter-link <?php echo empty($jenis_filter) ? 'active' : ''; ?>">
                                 <span> Semua Produk</span>
                                 <span class="filter-count">(<?php echo $total_semua; ?>)</span>
                             </a>
                         </div>
                         <div class="filter-option">
-                            <a href="produk.php?jenis=darah<?php echo !empty($search_query) ? '&search='.urlencode($search_query) : ''; ?>" 
-                               class="filter-link <?php echo $jenis_filter == 'darah' ? 'active' : ''; ?>">
+                            <a href="produk.php?jenis=darah<?php echo !empty($search_query) ? '&search=' . urlencode($search_query) : ''; ?>"
+                                class="filter-link <?php echo $jenis_filter == 'darah' ? 'active' : ''; ?>">
                                 <span> Obat Darah</span>
                                 <span class="filter-count">(<?php echo isset($jenis_counts['darah']) ? $jenis_counts['darah'] : 0; ?>)</span>
                             </a>
                         </div>
                         <div class="filter-option">
-                            <a href="produk.php?jenis=herbal<?php echo !empty($search_query) ? '&search='.urlencode($search_query) : ''; ?>" 
-                               class="filter-link <?php echo $jenis_filter == 'herbal' ? 'active' : ''; ?>">
+                            <a href="produk.php?jenis=herbal<?php echo !empty($search_query) ? '&search=' . urlencode($search_query) : ''; ?>"
+                                class="filter-link <?php echo $jenis_filter == 'herbal' ? 'active' : ''; ?>">
                                 <span> Obat Herbal</span>
                                 <span class="filter-count">(<?php echo isset($jenis_counts['herbal']) ? $jenis_counts['herbal'] : 0; ?>)</span>
                             </a>
                         </div>
                         <div class="filter-option">
-                            <a href="produk.php?jenis=tubuh<?php echo !empty($search_query) ? '&search='.urlencode($search_query) : ''; ?>" 
-                               class="filter-link <?php echo $jenis_filter == 'tubuh' ? 'active' : ''; ?>">
+                            <a href="produk.php?jenis=tubuh<?php echo !empty($search_query) ? '&search=' . urlencode($search_query) : ''; ?>"
+                                class="filter-link <?php echo $jenis_filter == 'tubuh' ? 'active' : ''; ?>">
                                 <span> Obat Tubuh</span>
                                 <span class="filter-count">(<?php echo isset($jenis_counts['tubuh']) ? $jenis_counts['tubuh'] : 0; ?>)</span>
                             </a>
                         </div>
                         <div class="filter-option">
-                            <a href="produk.php?jenis=kepala<?php echo !empty($search_query) ? '&search='.urlencode($search_query) : ''; ?>" 
-                               class="filter-link <?php echo $jenis_filter == 'kepala' ? 'active' : ''; ?>">
+                            <a href="produk.php?jenis=kepala<?php echo !empty($search_query) ? '&search=' . urlencode($search_query) : ''; ?>"
+                                class="filter-link <?php echo $jenis_filter == 'kepala' ? 'active' : ''; ?>">
                                 <span> Obat Kepala</span>
                                 <span class="filter-count">(<?php echo isset($jenis_counts['kepala']) ? $jenis_counts['kepala'] : 0; ?>)</span>
                             </a>
                         </div>
                     </div>
                     <?php if (!empty($jenis_filter) || !empty($search_query)) { ?>
-                    <div class="filter-section">
-                        <a href="produk.php" class="clear-filters">Reset Filter</a>
-                    </div>
+                        <div class="filter-section">
+                            <a href="produk.php" class="clear-filters">Reset Filter</a>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
@@ -185,7 +185,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                 <div class="mb-4">
                     <?php
                     $total_produk = mysqli_num_rows($result);
-                    
+
                     // Filter indikator teks
                     $filter_text = '';
                     if (!empty($jenis_filter)) {
@@ -225,7 +225,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                                 <?php include 'components/product-card.php'; ?>
                             </div>
 
-                    <?php
+                        <?php
                         } // End while
                     } else {
                         // Jika tidak ada produk
@@ -251,7 +251,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                                 <a href="produk.php" class="btn btn-primary">Lihat Semua Produk</a>
                             </div>
                         </div>
-                        <?php
+                    <?php
                     }
                     ?>
                 </div>
@@ -311,10 +311,7 @@ foreach ($_SESSION['keranjang'] as $item) {
                     <div class="footer-section">
                         <h4>Bantuan</h4>
                         <ul class="footer-links">
-                            <li><a href="#">FAQ</a></li>
                             <li><a href="hubungikami.php">Hubungi Kami</a></li>
-                            <li><a href="#">Syarat & Ketentuan</a></li>
-                            <li><a href="#">Kebijakan Privasi</a></li>
                             <li><a href="#">Cara Pemesanan</a></li>
                         </ul>
                     </div>
@@ -334,18 +331,6 @@ foreach ($_SESSION['keranjang'] as $item) {
             if (toast) toast.remove();
         }, 3000);
 
-        // Fungsi untuk wishlist
-        document.querySelectorAll('.wishlist-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                if (this.innerHTML === '♡') {
-                    this.innerHTML = '♥';
-                    this.style.color = '#ff6b6b';
-                } else {
-                    this.innerHTML = '♡';
-                    this.style.color = '';
-                }
-            });
-        });
     </script>
 </body>
 

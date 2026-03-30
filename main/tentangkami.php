@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tentangkami.css">
 </head>
+
 <body>
-            <header class="header sticky-top">
+    <header class="header sticky-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center py-3">
                 <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none">
                     <div class="logo-icon"></div>
-                    <div class="logo-text"><h1>MARCYDAP</h1><p>APOTEK</p></div>
+                    <div class="logo-text">
+                        <h1>MARCYDAP</h1>
+                        <p>APOTEK</p>
+                    </div>
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul class="nav">
@@ -35,14 +40,14 @@
             <h1 class="fade-in">Tentang Kami</h1>
             <p class="fade-in">Mengenal lebih dekat Marcydap Apotek, mitra kesehatan terpercaya Anda.</p>
         </div>
-    </section>  
+    </section>
 
     <!-- Latar Belakang -->
     <section class="story-section">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    
+
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title">Cerita Kami</h2>
@@ -125,11 +130,27 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="timeline">
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Pertama</div><div class="timeline-desc">Merencanakan design dengan mengambil refrensi dari web lain, dan melakukan design di figma</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Kedua</div><div class="timeline-desc">Saat selesai mendesign di figma, maka mulai implementasi desain ke dalam kode.</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Ketiga</div><div class="timeline-desc">Mulai menambahkan back-end seperti fungsi pemesanan</div></div>
-                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Minggu Keempat</div><div class="timeline-desc">Melakukan Finishing dan beberapa sentuhan akhir</div></div>
-                       
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">Minggu Pertama</div>
+                            <div class="timeline-desc">Merencanakan design dengan mengambil refrensi dari web lain, dan melakukan design di figma</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">Minggu Kedua</div>
+                            <div class="timeline-desc">Saat selesai mendesign di figma, maka mulai implementasi desain ke dalam kode.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">Minggu Ketiga</div>
+                            <div class="timeline-desc">Mulai menambahkan back-end seperti fungsi pemesanan</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">Minggu Keempat</div>
+                            <div class="timeline-desc">Melakukan Finishing dan beberapa sentuhan akhir</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -149,14 +170,37 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-5 mb-5">
-                <div class="col-lg-5"><div class="footer-brand"><h3>MARCYDAP</h3><p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p></div></div>
-                <div class="col-lg-2"><div class="footer-section"><h4>Perusahaan</h4><ul class="footer-links"><li><a href="tentangkami.php">Tentang Kami</a></li></ul></div></div>
-                <div class="col-lg-3"><div class="footer-section"><h4>Bantuan</h4><ul class="footer-links"><li><a href="#">FAQ</a></li><li><a href="hubungikami.php">Hubungi Kami</a></li><li><a href="#">Syarat & Ketentuan</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">Cara Pemesanan</a></li></ul></div></div>
+                <div class="col-lg-5">
+                    <div class="footer-brand">
+                        <h3>MARCYDAP</h3>
+                        <p>Platform kesehatan terpercaya yang menghubungkan Anda dengan produk berkualitas dan layanan profesional.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-section">
+                        <h4>Perusahaan</h4>
+                        <ul class="footer-links">
+                            <li><a href="tentangkami.php">Tentang Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-section">
+                        <h4>Bantuan</h4>
+                        <ul class="footer-links">
+                            <li><a href="hubungikami.php">Hubungi Kami</a></li>
+                            <li><a href="#">Cara Pemesanan</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Marcydap. All rights reserved. Made with in Indonesia</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Marcydap. All rights reserved. Made with in Indonesia</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     }
     unset($item);
 
-    // Jika belum ada, tambahkan
+    // Jika belum ada, tambahkan barang baru ke keranjang
     if (!$found) {
         $_SESSION['keranjang'][] = [
             'id_barang' => $product['id_barang'],
@@ -128,9 +128,9 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
             <!-- gambar produk -->
             <div class="col-lg-5">
                 <div class="product-detail-image">
-                    <img src="<?php echo htmlspecialchars($product['gambar']); ?>" 
-                         alt="<?php echo htmlspecialchars($product['nama_barang']); ?>"
-                         class="img-fluid">
+                    <img src="<?php echo htmlspecialchars($product['gambar']); ?>"
+                        alt="<?php echo htmlspecialchars($product['nama_barang']); ?>"
+                        class="img-fluid">
                 </div>
             </div>
 
@@ -139,7 +139,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
                 <div class="product-detail-info">
                     <div class="mb-3">
                         <span class="badge-category badge-<?php echo $product['jenis_barang']; ?>">
-                            <?php 
+                            <?php
                             $jenis_icons = [
                                 'darah' => '',
                                 'herbal' => '',
@@ -156,9 +156,9 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
                             ?>
                         </span>
                     </div>
-                    
+
                     <h1 class="product-detail-title"><?php echo htmlspecialchars($product['nama_barang']); ?></h1>
-                    
+
                     <div class="product-rating mb-3">
                     </div>
 
@@ -215,18 +215,18 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
 
         <!-- Produk Lainnya -->
         <?php if (mysqli_num_rows($result_related) > 0) { ?>
-        <div class="related-products mt-5">
-            <h3 class="section-title mb-4">Produk Terkait</h3>
-            <div class="row g-4">
-                <?php while ($related = mysqli_fetch_assoc($result_related)) { 
-                    $product = $related;
-                ?>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <?php include 'components/product-card.php'; ?>
-                    </div>
-                <?php } ?>
+            <div class="related-products mt-5">
+                <h3 class="section-title mb-4">Produk Terkait</h3>
+                <div class="row g-4">
+                    <?php while ($related = mysqli_fetch_assoc($result_related)) {
+                        $product = $related;
+                    ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <?php include 'components/product-card.php'; ?>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
-        </div>
         <?php } ?>
     </div>
 
@@ -274,10 +274,7 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
                     <div class="footer-section">
                         <h4>Bantuan</h4>
                         <ul class="footer-links">
-                            <li><a href="#">FAQ</a></li>
                             <li><a href="hubungikami.php">Hubungi Kami</a></li>
-                            <li><a href="#">Syarat & Ketentuan</a></li>
-                            <li><a href="#">Kebijakan Privasi</a></li>
                             <li><a href="#">Cara Pemesanan</a></li>
                         </ul>
                     </div>
@@ -313,4 +310,5 @@ $harga_format = number_format($product['harga'], 0, ',', '.');
         }, 3000);
     </script>
 </body>
+
 </html>
