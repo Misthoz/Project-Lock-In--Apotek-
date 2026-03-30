@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Marcydap Apotek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-panel.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-content">
+                    <div class="logo-icon">🌿</div>
+                    <div class="logo-text">
+                        <h2>MARCYDAP</h2>
+                        <p>Admin Panel</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-section">
+                    <div class="menu-label">Main</div>
+                    <a href="#" class="menu-item active">
+                        <span class="menu-icon">📊</span>
+                        Dashboard
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">📦</span>
+                        Orders
+                        <span class="menu-badge">12</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">💊</span>
+                        Products
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">👥</span>
+                        Customers
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">📈</span>
+                        Analytics
+                    </a>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-label">Management</div>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">🏪</span>
+                        Inventory
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">👨‍⚕️</span>
+                        Pharmacists
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">💬</span>
+                        Consultations
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">⭐</span>
+                        Reviews
+                    </a>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-label">Settings</div>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">🎟️</span>
+                        Vouchers
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">⚙️</span>
+                        Settings
+                    </a>
+                    <a href="#" class="menu-item">
+                        <span class="menu-icon">🚪</span>
+                        Logout
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Dashboard Overview</h1>
+                    <div class="breadcrumb">
+                        <span>🏠 Home</span>
+                        <span>›</span>
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                <div class="top-actions">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search orders, products, customers...">
+                    </div>
+                    <div class="icon-btn">
+                        🔔
+                        <span class="notification-dot"></span>
+                    </div>
+                    <div class="profile-btn">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>Admin User</h4>
+                            <p>Super Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Revenue</span>
+                        <div class="stat-icon">💰</div>
+                    </div>
+                    <div class="stat-value">Rp 45.2jt</div>
+                    <div class="stat-change up">↑ 12.5% vs last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Orders Today</span>
+                        <div class="stat-icon">📦</div>
+                    </div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-change up">↑ 8.3% vs yesterday</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Customers</span>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                    <div class="stat-value">2,847</div>
+                    <div class="stat-change up">↑ 234 new this month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Avg. Rating</span>
+                        <div class="stat-icon">⭐</div>
+                    </div>
+                    <div class="stat-value">4.8</div>
+                    <div class="stat-change up">↑ 0.2 improvement</div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Recent Orders -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active">All</button>
+                            <button class="filter-tab">Pending</button>
+                            <button class="filter-tab">Processing</button>
+                            <button class="filter-tab">Completed</button>
+                        </div>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="order-id">#MCD-001234</span></td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">👩</div>
+                                        <div class="customer-details">
+                                            <h4>Sarah Wijaya</h4>
+                                            <p>sarah@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Rp 100.750</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="order-id">#MCD-001233</span></td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">👨</div>
+                                        <div class="customer-details">
+                                            <h4>Budi Santoso</h4>
+                                            <p>budi@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Rp 75.500</td>
+                                <td><span class="status-badge processing">Processing</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="order-id">#MCD-001232</span></td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">👩</div>
+                                        <div class="customer-details">
+                                            <h4>Linda Permata</h4>
+                                            <p>linda@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Rp 214.000</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="order-id">#MCD-001231</span></td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">👨</div>
+                                        <div class="customer-details">
+                                            <h4>Andi Wijaya</h4>
+                                            <p>andi@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Rp 63.400</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="order-id">#MCD-001230</span></td>
+                                <td>
+                                    <div class="customer-info">
+                                        <div class="customer-avatar">👩</div>
+                                        <div class="customer-details">
+                                            <h4>Dewi Lestari</h4>
+                                            <p>dewi@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Rp 198.000</td>
+                                <td><span class="status-badge cancelled">Cancelled</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">💊</div>
+                        <div class="activity-content">
+                            <h4>New Product Added</h4>
+                            <p>Vitamin C 1000mg added to inventory</p>
+                            <span class="activity-time">2 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">📦</div>
+                        <div class="activity-content">
+                            <h4>Order Shipped</h4>
+                            <p>Order #MCD-001234 has been shipped</p>
+                            <span class="activity-time">15 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">👥</div>
+                        <div class="activity-content">
+                            <h4>New Customer</h4>
+                            <p>Sarah Wijaya registered an account</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">⭐</div>
+                        <div class="activity-content">
+                            <h4>New Review</h4>
+                            <p>5-star review from Budi Santoso</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">💬</div>
+                        <div class="activity-content">
+                            <h4>Consultation Completed</h4>
+                            <p>Apt. Lisa completed consultation</p>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">🎟️</div>
+                        <div class="activity-content">
+                            <h4>Voucher Used</h4>
+                            <p>SEHAT10 voucher redeemed by Linda</p>
+                            <span class="activity-time">4 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="bottom-grid">
+                <!-- Sales Chart -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>Sales Overview</h3>
+                        <button class="btn btn-primary">📊 View Report</button>
+                    </div>
+                    <div class="chart-placeholder">📈</div>
+                </div>
+
+                <!-- Top Products -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Top Products</h3>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-image">💊</div>
+                            <div class="product-details">
+                                <h4>Vitamin C 1000mg</h4>
+                                <p>Vitamin & Suplemen</p>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <div class="product-sales">234 sold</div>
+                            <div class="product-stock">Stock: 156</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-image">💊</div>
+                            <div class="product-details">
+                                <h4>Paracetamol 500mg</h4>
+                                <p>Obat Bebas</p>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <div class="product-sales">189 sold</div>
+                            <div class="product-stock">Stock: 342</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-image">💊</div>
+                            <div class="product-details">
+                                <h4>Masker Medis 3 Ply</h4>
+                                <p>Alat Kesehatan</p>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <div class="product-sales">156 sold</div>
+                            <div class="product-stock">Stock: 89</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-image">💊</div>
+                            <div class="product-details">
+                                <h4>Madu Premium</h4>
+                                <p>Herbal</p>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <div class="product-sales">142 sold</div>
+                            <div class="product-stock">Stock: 45</div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-info">
+                            <div class="product-image">💊</div>
+                            <div class="product-details">
+                                <h4>Multivitamin</h4>
+                                <p>Vitamin & Suplemen</p>
+                            </div>
+                        </div>
+                        <div class="product-stats">
+                            <div class="product-sales">128 sold</div>
+                            <div class="product-stock">Stock: 67</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
