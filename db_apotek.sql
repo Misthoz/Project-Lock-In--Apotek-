@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 15, 2026 at 01:01 AM
+-- Generation Time: Mar 31, 2026 at 01:16 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -76,7 +76,16 @@ INSERT INTO `detail_pemesanan` (`id_detail`, `id_pemesanan`, `id_barang`, `jumla
 (8, 8, 5, 1, '2000'),
 (9, 8, 4, 1, '50000'),
 (10, 8, 3, 1, '3000'),
-(11, 8, 2, 1, '10000');
+(11, 8, 2, 1, '10000'),
+(12, 9, 4, 2, '50000'),
+(13, 9, 5, 1, '2000'),
+(14, 10, 5, 1, '2000'),
+(15, 10, 2, 1, '10000'),
+(16, 10, 1, 1, '15000'),
+(17, 11, 5, 1, '2000'),
+(18, 11, 3, 1, '3000'),
+(19, 12, 5, 1, '2000'),
+(20, 12, 4, 1, '50000');
 
 -- --------------------------------------------------------
 
@@ -89,7 +98,7 @@ CREATE TABLE `pemesanan` (
   `id_user` int NOT NULL,
   `tanggal_pesan` datetime NOT NULL,
   `metode_pembayaran` enum('ewallet','cod') NOT NULL,
-  `status` enum('menunggu','dibatalkan','selesai') NOT NULL DEFAULT 'menunggu',
+  `status` enum('menunggu','diproses','siap_diambil','selesai','dibatalkan') NOT NULL,
   `total_harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -105,7 +114,11 @@ INSERT INTO `pemesanan` (`id_pemesanan`, `id_user`, `tanggal_pesan`, `metode_pem
 (5, 7, '2026-02-14 10:14:34', 'cod', 'menunggu', '45000'),
 (6, 8, '2026-02-14 10:20:28', 'cod', 'menunggu', '15000'),
 (7, 9, '2026-02-14 22:07:47', 'cod', 'menunggu', '30000'),
-(8, 10, '2026-02-14 23:22:02', 'ewallet', 'menunggu', '65000');
+(8, 10, '2026-02-14 23:22:02', 'ewallet', 'menunggu', '65000'),
+(9, 11, '2026-02-15 04:01:16', 'cod', 'menunggu', '102000'),
+(10, 12, '2026-02-15 12:06:23', 'cod', 'selesai', '27000'),
+(11, 13, '2026-02-15 12:08:24', 'cod', 'selesai', '5000'),
+(12, 14, '2026-03-31 07:46:30', 'ewallet', 'selesai', '52000');
 
 -- --------------------------------------------------------
 
@@ -117,23 +130,28 @@ CREATE TABLE `user` (
   `id_user` int NOT NULL,
   `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `umur` int NOT NULL,
-  `no_hp` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `no_hp` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `role` enum('user','admin') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `umur`, `no_hp`) VALUES
-(2, 'dapa', 15, '08123456789'),
-(3, 'dapa', 15, '08123456789'),
-(4, 'fawwaz', 17, '08123456789'),
-(5, 'Maulid', 18, '08123456789'),
-(6, 'Dewa', 16, '080987654321'),
-(7, 'gilang', 17, '089977665544'),
-(8, 'Adlan', 17, '085544332211'),
-(9, 'Finn Seville', 20, '081348962272'),
-(10, 'Finn Seville', 26, '081348962272');
+INSERT INTO `user` (`id_user`, `nama`, `umur`, `no_hp`, `role`) VALUES
+(2, 'dapa', 15, '08123456789', 'user'),
+(3, 'dapa', 15, '08123456789', 'user'),
+(4, 'fawwaz', 17, '08123456789', 'user'),
+(5, 'Maulid', 18, '08123456789', 'user'),
+(6, 'Dewa', 16, '080987654321', 'user'),
+(7, 'gilang', 17, '089977665544', 'user'),
+(8, 'Adlan', 17, '085544332211', 'user'),
+(9, 'Finn Seville', 20, '081348962272', 'user'),
+(10, 'Finn Seville', 26, '081348962272', 'user'),
+(11, 'Finn Seville', 20, '081348962272', 'user'),
+(12, 'Finn Seville', 20, '081348962272', 'user'),
+(13, 'Finn', 20, '081348962272', 'admin'),
+(14, 'Finn Seville', 45, '081348962272', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -174,25 +192,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_barang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pemesanan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
