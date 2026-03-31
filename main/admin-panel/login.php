@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $admin = mysqli_fetch_assoc($result);
 
         // Verifikasi password
-        if (password_verify($password, $admin['password'])) {
+        if ($password === $admin['password']) {
             // Login berhasil
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_username'] = $admin['username'];
