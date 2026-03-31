@@ -6,6 +6,17 @@
 include '../../config/db.php';
 
 // ============================================
+// CEK AUTENTIKASI ADMIN
+// ============================================
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+
+// Ambil data admin yang login
+$admin_username = $_SESSION['admin_username'] ?? 'admin';
+
+// ============================================
 // 1. AMBIL DATA PESANAN YANG MENUNGGU
 // ============================================
 $query = "SELECT p.*, u.nama, u.no_hp 
@@ -48,6 +59,7 @@ $total_customer = $customer_data['total'];
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,6 +67,7 @@ $total_customer = $customer_data['total'];
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="admin-panel.css">
 </head>
+
 <body>
     <div class="admin-container">
         <!-- Sidebar -->
@@ -67,7 +80,7 @@ $total_customer = $customer_data['total'];
                         <p>Admin Panel</p>
                     </div>
                 </div>
-            </div>  
+            </div>
 
             <nav class="sidebar-menu">
                 <div class="menu-section">
@@ -104,10 +117,13 @@ $total_customer = $customer_data['total'];
                     <div class="profile-btn">
                         <div class="profile-avatar">👤</div>
                         <div class="profile-info">
-                            <h4>Admin User</h4>
+                            <h4><?php echo htmlspecialchars($admin_username); ?></h4>
                             <p>Administrator</p>
                         </div>
                     </div>
+                    <a href="logout.php" class="logout-btn" title="Logout">
+                        🚪
+                    </a>
                 </div>
             </div>
 
@@ -119,7 +135,7 @@ $total_customer = $customer_data['total'];
                             border-radius: 10px; 
                             margin-bottom: 20px;
                             font-weight: 600;">
-                    <?php 
+                    <?php
                     if ($_GET['msg'] == 'approved') {
                         echo '✓ Pesanan berhasil di-approve!';
                     } else {
@@ -182,90 +198,90 @@ $total_customer = $customer_data['total'];
                             <span class="filter-tab active">Total: <?php echo $total_menunggu; ?></span>
                         </div>
                     </div>
-                    
+
                     <?php if ($total_menunggu > 0) { ?>
-                    <!-- Ada pesanan yang menunggu -->
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>No. Pesanan</th>
-                                <th>Nama Customer</th>
-                                <th>Tanggal</th>
-                                <th>Total Harga</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($pesanan_menunggu as $pesanan) { 
-                                // Format nomor pesanan jadi 5 digit: 1 -> 00001
-                                $nomor_pesanan = str_pad($pesanan['id_pemesanan'], 5, '0', STR_PAD_LEFT);
-                                
-                                // Format tanggal jadi lebih mudah dibaca
-                                $tanggal = date('d M Y, H:i', strtotime($pesanan['tanggal_pesan']));
-                            ?>
-                            <tr>
-                                <!-- Nomor Pesanan -->
-                                <td>
-                                    <span class="order-id">#MRC-<?php echo $nomor_pesanan; ?></span>
-                                </td>
-                                
-                                <!-- Info Customer -->
-                                <td>
-                                    <div class="customer-info">
-                                        <div class="customer-avatar">👤</div>
-                                        <div class="customer-details">
-                                            <h4><?php echo $pesanan['nama']; ?></h4>
-                                            <p><?php echo $pesanan['no_hp']; ?></p>
-                                        </div>
-                                    </div>
-                                </td>
-                                
-                                <!-- Tanggal -->
-                                <td><?php echo $tanggal; ?></td>
-                                
-                                <!--  Total Harga -->
-                                <td><strong>Rp <?php echo number_format($pesanan['total_harga'], 0, ',', '.'); ?></strong></td>
-                                
-                                <!-- Tombol -->
-                                <td>
-                                    <div class="action-btns">
-                                        <!-- TOMBOL APPROVE -->
-                                        <form method="POST" action="process_order.php" style="display: inline;">
-                                            <input type="hidden" name="action" value="approve">
-                                            <input type="hidden" name="id_pemesanan" value="<?php echo $pesanan['id_pemesanan']; ?>">
-                                            <button type="submit" 
-                                                    class="action-btn" 
-                                                    style="background: #d1fae5; color: #065f46;"
-                                                    onclick="return confirm('Approve pesanan #MRC-<?php echo $nomor_pesanan; ?>?')">
-                                                ✓
-                                            </button>
-                                        </form>
-                                        
-                                        <!-- TOMBOL CANCEL -->
-                                        <form method="POST" action="process_order.php" style="display: inline;">
-                                            <input type="hidden" name="action" value="cancel">
-                                            <input type="hidden" name="id_pemesanan" value="<?php echo $pesanan['id_pemesanan']; ?>">
-                                            <button type="submit" 
-                                                    class="action-btn" 
-                                                    style="background: #fee2e2; color: #991b1b;"
-                                                    onclick="return confirm('Batalkan pesanan #MRC-<?php echo $nomor_pesanan; ?>?')">
-                                                ✕
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                    
+                        <!-- Ada pesanan yang menunggu -->
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No. Pesanan</th>
+                                    <th>Nama Customer</th>
+                                    <th>Tanggal</th>
+                                    <th>Total Harga</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($pesanan_menunggu as $pesanan) {
+                                    // Format nomor pesanan jadi 5 digit: 1 -> 00001
+                                    $nomor_pesanan = str_pad($pesanan['id_pemesanan'], 5, '0', STR_PAD_LEFT);
+
+                                    // Format tanggal jadi lebih mudah dibaca
+                                    $tanggal = date('d M Y, H:i', strtotime($pesanan['tanggal_pesan']));
+                                ?>
+                                    <tr>
+                                        <!-- Nomor Pesanan -->
+                                        <td>
+                                            <span class="order-id">#MRC-<?php echo $nomor_pesanan; ?></span>
+                                        </td>
+
+                                        <!-- Info Customer -->
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="customer-avatar">👤</div>
+                                                <div class="customer-details">
+                                                    <h4><?php echo $pesanan['nama']; ?></h4>
+                                                    <p><?php echo $pesanan['no_hp']; ?></p>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <!-- Tanggal -->
+                                        <td><?php echo $tanggal; ?></td>
+
+                                        <!--  Total Harga -->
+                                        <td><strong>Rp <?php echo number_format($pesanan['total_harga'], 0, ',', '.'); ?></strong></td>
+
+                                        <!-- Tombol -->
+                                        <td>
+                                            <div class="action-btns">
+                                                <!-- TOMBOL APPROVE -->
+                                                <form method="POST" action="process_order.php" style="display: inline;">
+                                                    <input type="hidden" name="action" value="approve">
+                                                    <input type="hidden" name="id_pemesanan" value="<?php echo $pesanan['id_pemesanan']; ?>">
+                                                    <button type="submit"
+                                                        class="action-btn"
+                                                        style="background: #d1fae5; color: #065f46;"
+                                                        onclick="return confirm('Approve pesanan #MRC-<?php echo $nomor_pesanan; ?>?')">
+                                                        ✓
+                                                    </button>
+                                                </form>
+
+                                                <!-- TOMBOL CANCEL -->
+                                                <form method="POST" action="process_order.php" style="display: inline;">
+                                                    <input type="hidden" name="action" value="cancel">
+                                                    <input type="hidden" name="id_pemesanan" value="<?php echo $pesanan['id_pemesanan']; ?>">
+                                                    <button type="submit"
+                                                        class="action-btn"
+                                                        style="background: #fee2e2; color: #991b1b;"
+                                                        onclick="return confirm('Batalkan pesanan #MRC-<?php echo $nomor_pesanan; ?>?')">
+                                                        ✕
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+
                     <?php } else { ?>
-                    <!-- Tidak ada pesanan menunggu -->
-                    <div style="text-align: center; padding: 60px 20px; color: var(--slate);">
-                        <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
-                        <h4 style="margin-bottom: 10px; color: var(--ink);">Tidak Ada Pesanan Menunggu</h4>
-                        <p>Semua pesanan sudah diproses</p>
-                    </div>
+                        <!-- Tidak ada pesanan menunggu -->
+                        <div style="text-align: center; padding: 60px 20px; color: var(--slate);">
+                            <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+                            <h4 style="margin-bottom: 10px; color: var(--ink);">Tidak Ada Pesanan Menunggu</h4>
+                            <p>Semua pesanan sudah diproses</p>
+                        </div>
                     <?php } ?>
                 </div>
 
@@ -274,7 +290,7 @@ $total_customer = $customer_data['total'];
                     <div class="card-header">
                         <h3>📊 Ringkasan</h3>
                     </div>
-                    
+
                     <div class="activity-item">
                         <div class="activity-icon">⏳</div>
                         <div class="activity-content">
@@ -282,7 +298,7 @@ $total_customer = $customer_data['total'];
                             <p><?php echo $total_menunggu; ?> pesanan perlu di-approve</p>
                         </div>
                     </div>
-                    
+
                     <div class="activity-item">
                         <div class="activity-icon">📦</div>
                         <div class="activity-content">
@@ -290,7 +306,7 @@ $total_customer = $customer_data['total'];
                             <p><?php echo $pesanan_hari_ini; ?> pesanan masuk hari ini</p>
                         </div>
                     </div>
-                    
+
                     <div class="activity-item">
                         <div class="activity-icon">💰</div>
                         <div class="activity-content">
@@ -298,7 +314,7 @@ $total_customer = $customer_data['total'];
                             <p>Rp <?php echo number_format($total_revenue, 0, ',', '.'); ?></p>
                         </div>
                     </div>
-                    
+
                     <div class="activity-item">
                         <div class="activity-icon">👥</div>
                         <div class="activity-content">
@@ -312,4 +328,5 @@ $total_customer = $customer_data['total'];
         </main>
     </div>
 </body>
+
 </html>

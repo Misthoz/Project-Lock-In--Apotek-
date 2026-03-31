@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin_users`
+--
+
+CREATE TABLE `admin_users` (
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_users`
+-- Default admin: username=admin, password=admin123
+--
+
+INSERT INTO `admin_users` (`username`, `password`) VALUES
+('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `barang`
 --
 
@@ -156,6 +175,12 @@ INSERT INTO `user` (`id_user`, `nama`, `umur`, `no_hp`, `role`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_users`
+--
+ALTER TABLE `admin_users`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `barang`
